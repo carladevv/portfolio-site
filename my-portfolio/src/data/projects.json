@@ -45,45 +45,6 @@
                 "src": "/images/mg-05.png",
                 "alt": "Main hall",
                 "caption": "Generated layour for a museum consisting of 3 rooms."
-            },
-            {
-                "type": "youtube",
-                "youtubeId": "NUTGr5t3MoY",
-                "caption": "Demo walkthrough"
-            }
-        ]
-    },
-    {
-        "id": "p2",
-        "title": "Cova Bonica Virtual Tour",
-        "description": "Interactive tour of a photogrammetry-scanned cave with educational 3D fossils and aggressively optimized asset loading.",
-        "links": [
-            {
-                "href": "https://cova-bonica-virtual-tour.netlify.app/",
-                "label": "Try site"
-            }
-        ],
-        "tech": [
-            "React",
-            "Three.js",
-            "WebGL"
-        ],
-        "media": [
-            {
-                "src": "/images/cb-01.png",
-                "alt": "Cova Bonica Virtual Tour"
-            },
-            {
-                "src": "/images/cb-02.png",
-                "alt": "Cova Bonica Virtual Tour"
-            },
-            {
-                "src": "/images/cb-03.png",
-                "alt": "Cova Bonica Virtual Tour"
-            },
-            {
-                "src": "/images/cb-04.png",
-                "alt": "Cova Bonica Virtual Tour"
             }
         ]
     },
