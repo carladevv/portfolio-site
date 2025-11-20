@@ -5,7 +5,7 @@ import projectsData from "./data/projects.json";
 import labData from "./data/lab.json";
 
 import { activeTheme } from "./themes";
-import ProjectCard from "./components/ProjectCard";
+import ProjectCard from "./components/projectCard";
 
 // ❤️ extracted components
 import LanguageSelector from "./components/LanguageSelector";
