@@ -10,6 +10,8 @@ export default {
         renHeading: ['"Playfair Display"', "serif"],
         ngHeading: ['Montserrat', 'sans-serif'],
         ngBody: ['"Source Sans 3"', 'sans-serif'],
+        renroseBody: ['"Roboto Mono"','monospace'],
+        // renroseHeading: ["Share Tech Mono", 'noto-sans']
       },
     }
   },

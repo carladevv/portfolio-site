@@ -5,7 +5,14 @@ import projectsData from "./data/projects.json";
 import labData from "./data/lab.json";
 
 import { activeTheme } from "./themes";
-import ProjectCard from "./components/projectCard";
+import ProjectCard from "./components/ProjectCard";
+
+// ❤️ extracted components
+import LanguageSelector from "./components/LanguageSelector";
+import ToolbarFloating from "./components/ToolbarFloating";
+import BioHeaderMobile from "./components/BioHeaderMobile";
+import BioHeaderDesktop from "./components/BioHeaderDesktop";
+import FooterBar from "./components/FooterBar";
 
 const theme = activeTheme;
 
@@ -24,119 +31,11 @@ function useIsMobile(breakpoint = 768) {
 }
 
 // ---- i18n ----
-
 const copy = { en, es };
 const projects = projectsData;
 const lab = labData;
 
-// ---- UI components ----
-
-function ToolbarFloating({ t, lang, setLang, fontSize, setFontSize }) {
-  return (
-    <div
-      className={`fixed right-3 top-3 z-50 flex items-center gap-4 px-3 py-2 backdrop-blur ${theme.toolbar} ${theme.radiusSoft}`}
-    >
-      {/* Language */}
-      <label
-        className={`flex items-center gap-2 text-xs ${theme.textMuted}`}
-      >
-        <span className="opacity-70">{t.language}</span>
-        <select
-          aria-label={t.language}
-          value={lang}
-          onChange={(e) => setLang(e.target.value)}
-          className={`${theme.toolbarSelect} ${theme.radiusSoft} px-2 py-1`}
-        >
-          <option value="en">EN</option>
-          <option value="es">ES</option>
-        </select>
-      </label>
-    </div>
-  );
-}
-
-/**
- * Mobile header: text-only (no picture) + inline toolbar
- */
-function BioHeaderMobile({ t, lang, setLang, fontSize, setFontSize }) {
-  return (
-    <div className={`w-full ${theme.headerStrip}`}>
-      {/* toolbar – normal, not floating */}
-      <div className="flex items-center justify-end gap-4 px-3 pt-3">
-        <label
-          className={`flex items-center gap-2 text-xs ${theme.textMuted}`}
-        >
-          <span className="opacity-70">{t.language}</span>
-          <select
-            value={lang}
-            onChange={(e) => setLang(e.target.value)}
-            className={`${theme.toolbarSelect} ${theme.radiusSoft} px-2 py-1`}
-          >
-            <option value="en">EN</option>
-            <option value="es">ES</option>
-          </select>
-        </label>
-        <label
-          className={`flex items-center gap-2 text-xs ${theme.textMuted}`}
-        >
-          <span className="opacity-70">{t.fontSize}</span>
-          <div className={`flex ${theme.toolbarPill} ${theme.radiusMax}`}>
-            {["sm", "base", "lg"].map((s) => (
-              <button
-                key={s}
-                onClick={() => setFontSize(s)}
-                className={
-                  "px-2 py-1 text-xs " +
-                  (fontSize === s
-                    ? theme.toolbarPillActive
-                    : theme.toolbarPillInactive)
-                }
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </label>
-      </div>
-
-      {/* Text-only header */}
-      <div className="px-4 pb-5 pt-4">
-        <h1
-          className={`text-3xl font-semibold ${
-            theme.fontHeading || ""
-          } ${theme.headerTextMain}`}
-        >
-          {t.name}
-        </h1>
-        <p className={`mt-2 text-sm ${theme.headerTextMuted}`}>
-          {t.tagline}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Desktop header: text-only
- */
-function BioHeaderDesktop({ t }) {
-  return (
-    <div className={`w-full ${theme.headerStrip}`}>
-      <div className="px-4 py-6">
-        <h1
-          className={`text-3xl font-semibold ${
-            theme.fontHeading || ""
-          } ${theme.headerTextMain}`}
-        >
-          {t.name}
-        </h1>
-        <p className={`mt-2 text-base ${theme.headerTextMuted}`}>
-          {t.tagline}
-        </p>
-      </div>
-    </div>
-  );
-}
+// ---- internal components ----
 
 function SectionTabs({ t, current, onChange, size = "md" }) {
   const tabs = [
@@ -222,6 +121,8 @@ function MediaLightbox({ open, onClose, media, title, index }) {
   );
 }
 
+// ---- MAIN COMPONENT ----
+
 export default function PortfolioDemo() {
   const [lang, setLang] = useState("en");
   const [fontSize, setFontSize] = useState("base");
@@ -250,19 +151,21 @@ export default function PortfolioDemo() {
     item: null,
     index: 0,
   });
+
   const openMedia = (item, index) =>
     setLightbox({ open: true, item, index });
+
   const closeMedia = () =>
     setLightbox({ open: false, item: null, index: 0 });
 
   const isMobile = useIsMobile();
-  const isWideForGrid = !useIsMobile(1200); // >= 1200px → 2 columns of 600
+  const isWideForGrid = !useIsMobile(1200);
 
   return (
     <div
       className={`min-h-screen ${theme.pageBg} ${theme.fontBody} ${theme.textMain} ${textSize}`}
     >
-      {/* Desktop: floating toolbar + desktop bio band */}
+      {/* Desktop header + floating toolbar */}
       {!isMobile && (
         <>
           <ToolbarFloating
@@ -276,7 +179,7 @@ export default function PortfolioDemo() {
         </>
       )}
 
-      {/* Mobile: combined header */}
+      {/* Mobile header */}
       {isMobile && (
         <BioHeaderMobile
           t={t}
@@ -309,7 +212,6 @@ export default function PortfolioDemo() {
             </p>
           </article>
         ) : (
-          // grid: 2 × 600px columns when there's room, otherwise 1 column stretched
           <div
             className="grid gap-6 justify-center"
             style={{
@@ -331,22 +233,9 @@ export default function PortfolioDemo() {
       </main>
 
       {/* Footer */}
-      <footer
-        className={`fixed bottom-0 left-0 right-0 backdrop-blur ${theme.footerBar}`}
-      >
-        <div className="mx-auto flex max-w-10xl items-center justify-between px-4 py-2 text-xs">
-          <span className={`place-self-start ${theme.textMuted}`}>
-            © {new Date().getFullYear()} • {t.name}
-          </span>
-          <a
-            href="https://github.com/youruser/your-portfolio"
-            className={`place-self-end px-2 py-1 ${theme.footerButton} ${theme.radiusSoft}`}
-          >
-            {t.footerNote}
-          </a>
-        </div>
-      </footer>
+      <FooterBar t={t} />
 
+      {/* Media Viewer */}
       <MediaLightbox
         open={lightbox.open}
         onClose={closeMedia}

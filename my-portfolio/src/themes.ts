@@ -289,123 +289,123 @@ export const themes: Record<ThemeId, Theme> = {
 
         lightboxBackdrop: "bg-black/90",
     },
-    
+
     terminalMono: {
-    id: "terminalMono",
-    label: "Terminal Mono",
+        id: "terminalMono",
+        label: "Terminal Mono",
 
-    pageBg: "bg-neutral-950",
+        pageBg: "bg-neutral-950",
 
-    // Typography – monospace everywhere
-    fontBody: "font-mono",
-    fontHeading: "font-mono tracking-[0.2em] uppercase",
+        // Typography – monospace everywhere
+        fontBody: "font-mono",
+        fontHeading: "font-mono tracking-[0.2em] uppercase",
 
-    // Text colors
-    textMain: "text-neutral-100",
-    textMuted: "text-neutral-400",
-    textSubtle: "text-neutral-500",
-    heading: "text-neutral-50",
-    accentText: "text-orange-500",
-    accentSoftText: "text-orange-400",
-    headerTextMain: "text-neutral-50",
-    headerTextMuted: "text-neutral-400",
+        // Text colors
+        textMain: "text-neutral-100",
+        textMuted: "text-neutral-400",
+        textSubtle: "text-neutral-500",
+        heading: "text-neutral-50",
+        accentText: "text-orange-500",
+        accentSoftText: "text-orange-400",
+        headerTextMain: "text-neutral-50",
+        headerTextMuted: "text-neutral-400",
 
-    // Fully sharp corners
-    radiusNone: "rounded-none",
-    radiusSoft: "rounded-none",
-    radiusMax: "rounded-none",
+        // Fully sharp corners
+        radiusNone: "rounded-none",
+        radiusSoft: "rounded-none",
+        radiusMax: "rounded-none",
 
-    // Shell-like chrome
-    headerStrip: "border-b border-neutral-800 bg-black text-neutral-50",
-    card: "border border-neutral-800 bg-neutral-900",
-    footerBar: "border-t border-neutral-800 bg-black text-neutral-400",
+        // Shell-like chrome
+        headerStrip: "border-b border-neutral-800 bg-black text-neutral-50",
+        card: "border border-neutral-800 bg-neutral-900",
+        footerBar: "border-t border-neutral-800 bg-black text-neutral-400",
 
-    // Toolbar + pills
-    toolbar:
-        "border border-neutral-700 bg-neutral-900 text-neutral-100",
-    toolbarSelect:
-        "border border-neutral-600 bg-black text-neutral-50",
-    toolbarPill: "border border-neutral-600",
-    toolbarPillActive: "bg-orange-700 text-black",
-    toolbarPillInactive:
-        "bg-neutral-900 text-neutral-400 hover:bg-neutral-800",
+        // Toolbar + pills
+        toolbar:
+            "border border-neutral-700 bg-neutral-900 text-neutral-100",
+        toolbarSelect:
+            "border border-neutral-600 bg-black text-neutral-50",
+        toolbarPill: "border border-neutral-600",
+        toolbarPillActive: "bg-orange-700 text-black",
+        toolbarPillInactive:
+            "bg-neutral-900 text-neutral-400 hover:bg-neutral-800",
 
-    // Chips / tags
-    chip:
-        "border border-orange-700 bg-orange-900/40 text-orange-300 font-medium",
+        // Chips / tags
+        chip:
+            "border border-orange-700 bg-orange-900/40 text-orange-300 font-medium",
 
-    // Buttons – terminal amber feel
-    primaryButton:
-        "border border-orange-700 bg-orange-700 text-black hover:bg-orange-600 hover:border-orange-500",
-    footerButton:
-        "border border-orange-700 bg-orange-900/30 text-orange-300 hover:bg-orange-800/60",
+        // Buttons – terminal amber feel
+        primaryButton:
+            "border border-orange-700 bg-orange-700 text-black hover:bg-orange-600 hover:border-orange-500",
+        footerButton:
+            "border border-orange-700 bg-orange-900/30 text-orange-300 hover:bg-orange-800/60",
 
-    // Tabs
-    tabActive:
-        "border-orange-700 text-orange-100 bg-neutral-900",
-    tabInactive:
-        "border-neutral-700 text-neutral-400 bg-black hover:bg-neutral-900",
+        // Tabs
+        tabActive:
+            "border-orange-700 text-orange-100 bg-neutral-900",
+        tabInactive:
+            "border-neutral-700 text-neutral-400 bg-black hover:bg-neutral-900",
 
-    lightboxBackdrop: "bg-black/95",
-},
-renaissanceRose: {
-    id: "renaissanceRose",
-    label: "Velvet Terminal",
+        lightboxBackdrop: "bg-black/95",
+    },
+    renaissanceRose: {
+        id: "renaissanceRose",
+        label: "Velvet Terminal",
 
-    pageBg: "bg-neutral-950",
+        pageBg: "bg-neutral-950",
 
-    fontBody: "font-mono",
-    fontHeading: "font-mono tracking-[0.2em] uppercase",
+        fontBody: "font-renroseBody",
+        fontHeading: "font-renroseHeading  tracking-[0.2em]  uppercase",
 
-    textMain: "text-neutral-100",
-    textMuted: "text-neutral-400",
-    textSubtle: "text-neutral-500",
-    heading: "text-neutral-50",
+        textMain: "text-neutral-100",
+        textMuted: "text-neutral-400",
+        textSubtle: "text-neutral-500",
+        heading: "text-neutral-50",
 
-    // High-contrast antique violet / rose
-    accentText: "text-[#c7849c]",
-    accentSoftText: "text-[#9c5f7b]",
+        // High-contrast antique violet / rose
+        accentText: "text-[#c7849c]",
+        accentSoftText: "text-[#9c5f7b]",
 
-    headerTextMain: "text-neutral-50",
-    headerTextMuted: "text-neutral-400",
+        headerTextMain: "text-neutral-50",
+        headerTextMuted: "text-neutral-400",
 
-    radiusNone: "rounded-none",
-    radiusSoft: "rounded-none",
-    radiusMax: "rounded-none",
+        radiusNone: "rounded-none",
+        radiusSoft: "rounded-none",
+        radiusMax: "rounded-none",
 
-    headerStrip: "border-b border-neutral-800 bg-black text-neutral-50",
-    card: "border border-neutral-800 bg-neutral-900",
-    footerBar: "border-t border-neutral-800 bg-black text-neutral-400",
+        headerStrip: "border-b border-neutral-800 bg-black text-neutral-50",
+        card: "border border-neutral-800 bg-neutral-900",
+        footerBar: "border-t border-neutral-800 bg-black text-neutral-400",
 
-    toolbar:
-        "border border-neutral-700 bg-neutral-900 text-neutral-100",
+        toolbar:
+            "border border-neutral-700 bg-neutral-900 text-neutral-100",
 
-    toolbarSelect:
-        "border border-neutral-600 bg-black text-neutral-50",
+        toolbarSelect:
+            "border border-neutral-600 bg-black text-neutral-50",
 
-    toolbarPill: "border border-neutral-600",
+        toolbarPill: "border border-neutral-600",
 
-    toolbarPillActive:
-        "bg-[#743a55] text-neutral-100", 
-    toolbarPillInactive:
-        "bg-neutral-900 text-neutral-400 hover:bg-neutral-800",
+        toolbarPillActive:
+            "bg-[#743a55] text-neutral-100",
+        toolbarPillInactive:
+            "bg-neutral-900 text-neutral-400 hover:bg-neutral-800",
 
-    chip:
-        "border border-[#743a55] bg-[#462738]/40 text-[#c7849c] font-medium",
+        chip:
+            "border border-[#743a55] bg-[#462738]/40 text-[#c7849c] font-medium",
 
-    primaryButton:
-        "border border-[#743a55] bg-[#743a55] text-neutral-100 hover:bg-[#9c5f7b] hover:border-[#9c5f7b]",
+        primaryButton:
+            "border border-[#743a55] bg-[#743a55] text-neutral-100 hover:bg-[#9c5f7b] hover:border-[#9c5f7b]",
 
-    footerButton:
-        "border border-[#743a55] bg-[#462738]/40 text-[#c7849c] hover:bg-[#462738]/70",
+        footerButton:
+            "border border-[#743a55] bg-[#462738]/40 text-[#c7849c] hover:bg-[#462738]/70",
 
-    tabActive:
-        "border-[#743a55] text-[#c7849c] bg-neutral-900",
-    tabInactive:
-        "border-neutral-700 text-neutral-400 bg-black hover:bg-neutral-900",
+        tabActive:
+            "border-[#743a55] text-[#c7849c] bg-neutral-900",
+        tabInactive:
+            "border-neutral-700 text-neutral-400 bg-black hover:bg-neutral-900",
 
-    lightboxBackdrop: "bg-black/95",
-}
+        lightboxBackdrop: "bg-black/95",
+    }
 
 
 }

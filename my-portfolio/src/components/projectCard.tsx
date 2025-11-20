@@ -72,11 +72,11 @@ export default function ProjectCard({
     >
       {/* TEXT BLOCK */}
       <div>
-        <h3 className={`text-xl font-semibold ${theme.heading}`}>
+        <h3 className={`text-xl font-light ${theme.fontHeading}`}>
           {item.title}
         </h3>
 
-        <p className={`mt-2 text-sm md:text-base ${theme.textMain}`}>
+        <p className={`mt-2 font-thin ${theme.textMain}`}>
           {item.description}
         </p>
 
