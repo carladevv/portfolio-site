@@ -44,7 +44,7 @@ export default function ToolbarFloating({
         </div>
       </label>
        {/* Theme selector */}
-      <div className="flex items-center gap-1">
+      {/* <div className="flex items-center gap-1">
         <button
           type="button"
           onClick={onPrevTheme}
@@ -64,7 +64,7 @@ export default function ToolbarFloating({
         >
           →
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

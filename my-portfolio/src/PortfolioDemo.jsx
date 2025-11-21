@@ -2,7 +2,8 @@
 import React, { useMemo, useState, useEffect } from "react";
 import en from "./data/i18n.en.json";
 import es from "./data/i18n.es.json";
-import cardsData from "./data/cards.json";
+// ⬇️ use Google Sheets loader instead of local JSON
+import { loadCardsFromSheets } from "./data/loadCardsFromSheets";
 
 import ProjectCard from "./components/projectCard";
 
@@ -29,15 +30,12 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
-// ---- i18n / data ----
-const copy = { en, es };
-const cards = cardsData;
-
 // ---- internal components ----
 
 function MediaLightbox({ open, onClose, media, title, index }) {
+  const { theme } = useTheme();
   if (!open) return null;
-   const { theme } = useTheme();
+
   const m = media[index];
   const isVideo = m?.type === "youtube";
 
@@ -75,14 +73,23 @@ function MediaLightbox({ open, onClose, media, title, index }) {
           )}
         </div>
         {(m?.caption || m?.alt) && (
-          <p
-            className={`mt-2 text-center text-xs ${theme.textMuted}`}
-          >
+          <p className={`mt-2 text-center text-xs ${theme.textMuted}`}>
             {m?.caption || m?.alt}
           </p>
         )}
       </div>
     </div>
+  );
+}
+
+// small helper to get the title for current lang from the card
+function getItemTitle(item, lang) {
+  if (!item) return "";
+  return (
+    item.content?.[lang]?.title ||
+    item.content?.en?.title ||
+    item.title || // fallback if you ever keep a flat title
+    ""
   );
 }
 
@@ -92,11 +99,12 @@ function PortfolioInner() {
   const [lang, setLang] = useState("en");
   const [fontSize, setFontSize] = useState("sm");
   const [section, setSection] = useState("graphics");
+  const [cards, setCards] = useState([]);
+  const [cardsLoading, setCardsLoading] = useState(true);
 
   const { theme, themeId, nextTheme, prevTheme } = useTheme();
 
   const t = { en, es }[lang];
-  const cards = cardsData;
 
   const textSize =
     fontSize === "sm"
@@ -104,6 +112,31 @@ function PortfolioInner() {
       : fontSize === "lg"
       ? "text-lg"
       : "text-base";
+
+  // load cards from Google Sheets once on mount
+  useEffect(() => {
+    let cancelled = false;
+
+    async function fetchCards() {
+      try {
+        const loaded = await loadCardsFromSheets();
+        if (!cancelled) {
+          setCards(loaded);
+        }
+      } catch (err) {
+        console.error("Failed to load cards from Google Sheets:", err);
+      } finally {
+        if (!cancelled) {
+          setCardsLoading(false);
+        }
+      }
+    }
+
+    fetchCards();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const items = useMemo(() => {
     if (section === "bio") return [];
@@ -135,7 +168,7 @@ function PortfolioInner() {
         ${textSize}
       `}
     >
-      {/* Grain Texture (THIS IS THE ONE THAT WAS LOST) */}
+      {/* Grain Texture */}
       <div
         className={`
           absolute inset-0
@@ -195,6 +228,8 @@ function PortfolioInner() {
                 what you’re exploring next.
               </p>
             </article>
+          ) : cardsLoading ? (
+            <p className={theme.textSubtle}>Loading projects…</p>
           ) : (
             <div
               className="grid gap-6 justify-center"
@@ -205,15 +240,14 @@ function PortfolioInner() {
               }}
             >
               {items.map((p) => (
-  <ProjectCard
-    key={p.id}
-    item={p}
-    t={t}
-    lang={lang}        // 👈 add this
-    onOpenMedia={openMedia}
-  />
-))}
-
+                <ProjectCard
+                  key={p.id}
+                  item={p}
+                  t={t}
+                  lang={lang}
+                  onOpenMedia={openMedia}
+                />
+              ))}
             </div>
           )}
         </main>
@@ -224,14 +258,13 @@ function PortfolioInner() {
           open={lightbox.open}
           onClose={closeMedia}
           media={lightbox.item?.media || []}
-          title={lightbox.item?.title || ""}
+          title={getItemTitle(lightbox.item, lang)}
           index={lightbox.index}
         />
       </div>
     </div>
   );
 }
-
 
 export default function PortfolioDemo() {
   return (
@@ -240,4 +273,3 @@ export default function PortfolioDemo() {
     </ThemeProvider>
   );
 }
-

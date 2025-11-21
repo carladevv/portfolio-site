@@ -14,6 +14,7 @@ export interface Theme {
 
     // Base layout + typography
     pageBg: string;        // background for <body> / root
+    bgTexture: string;
     fontBody: string;
     fontHeading: string;
 

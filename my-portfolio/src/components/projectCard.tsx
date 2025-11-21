@@ -126,7 +126,7 @@ export default function ProjectCard({
 
         {(priorityLabel || year) && (
           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
-            
+
             {year && (
               <span className={theme.textSubtle}>{year}</span>
             )}
@@ -230,9 +230,9 @@ export default function ProjectCard({
 
               const thumbSrc = isVideo
                 ? m.thumb ||
-                  (m.youtubeId
-                    ? `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`
-                    : "")
+                (m.youtubeId
+                  ? `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`
+                  : "")
                 : m.src;
 
               return (
