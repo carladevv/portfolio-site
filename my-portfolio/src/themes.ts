@@ -353,6 +353,7 @@ export const themes: Record<ThemeId, Theme> = {
         label: "Velvet Terminal",
 
         pageBg: "bg-neutral-950",
+  bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
 
         fontBody: "font-renroseBody",
         fontHeading: "font-renroseHeading  tracking-[0.2em]  uppercase",
@@ -374,11 +375,11 @@ export const themes: Record<ThemeId, Theme> = {
         radiusMax: "rounded-none",
 
         headerStrip: "border-b border-neutral-800 bg-black text-neutral-50",
-        card: "border border-neutral-800 bg-neutral-900",
+        card: "border border-neutral-800 bg-neutral-950",
         footerBar: "border-t border-neutral-800 bg-black text-neutral-400",
 
         toolbar:
-            "border border-neutral-700 bg-neutral-900 text-neutral-100",
+            "border border-neutral-700 bg-neutral-950 text-neutral-100",
 
         toolbarSelect:
             "border border-neutral-600 bg-black text-neutral-50",
@@ -400,7 +401,7 @@ export const themes: Record<ThemeId, Theme> = {
             "border border-[#743a55] bg-[#462738]/40 text-[#c7849c] hover:bg-[#462738]/70",
 
         tabActive:
-            "border-[#743a55] text-[#c7849c] bg-neutral-900",
+            "border-[#743a55] text-[#c7849c] bg-neutral-950",
         tabInactive:
             "border-neutral-700 text-neutral-400 bg-black hover:bg-neutral-900",
 
@@ -412,5 +413,16 @@ export const themes: Record<ThemeId, Theme> = {
 
 
 // Change this to switch theme globally for now
+// Order in which themes will cycle with the arrows
+export const THEME_ORDER: ThemeId[] = [
+  "emeraldDark",
+  "baroqueRose",
+  "renaissanceStone",
+  "natgeoClassic",
+  "terminalMono",
+  "renaissanceRose",
+];
+
+// Default theme when the app loads
 export const ACTIVE_THEME_ID: ThemeId = "renaissanceRose";
-export const activeTheme: Theme = themes[ACTIVE_THEME_ID];
+

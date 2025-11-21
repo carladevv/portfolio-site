@@ -1,10 +1,10 @@
 // src/components/BioHeaderDesktop.jsx
 import React from "react";
-import { activeTheme } from "../themes";
+import { useTheme } from "../ThemeContext";
 
-const theme = activeTheme;
 
 export default function BioHeaderDesktop({ t }) {
+    const { theme } = useTheme();
   return (
     <div className={`w-full ${theme.headerStrip}`}>
       <div className="px-4 py-6">
@@ -16,7 +16,7 @@ export default function BioHeaderDesktop({ t }) {
           {t.name}
         </h1>
         <p className={`mt-2 text-base uppercase ${theme.headerTextMuted}`}>
-          {t.tagline}
+          { "> " + t.tagline}
         </p>
       </div>
     </div>

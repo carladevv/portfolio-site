@@ -1,20 +1,19 @@
+// src/PortfolioDemo.jsx
 import React, { useMemo, useState, useEffect } from "react";
 import en from "./data/i18n.en.json";
 import es from "./data/i18n.es.json";
-import projectsData from "./data/projects.json";
-import labData from "./data/lab.json";
+import cardsData from "./data/cards.json";
 
-import { activeTheme } from "./themes";
 import ProjectCard from "./components/projectCard";
 
-// ❤️ extracted components
-import LanguageSelector from "./components/LanguageSelector";
+// extracted components
 import ToolbarFloating from "./components/ToolbarFloating";
 import BioHeaderMobile from "./components/BioHeaderMobile";
 import BioHeaderDesktop from "./components/BioHeaderDesktop";
 import FooterBar from "./components/FooterBar";
+import SectionTabs from "./components/SectionTabs";
 
-const theme = activeTheme;
+import { ThemeProvider, useTheme } from "./ThemeContext";
 
 // ---- hooks ----
 
@@ -30,49 +29,15 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
-// ---- i18n ----
+// ---- i18n / data ----
 const copy = { en, es };
-const projects = projectsData;
-const lab = labData;
+const cards = cardsData;
 
 // ---- internal components ----
 
-function SectionTabs({ t, current, onChange, size = "md" }) {
-  const tabs = [
-    { key: "projects", label: t.projects },
-    { key: "lab", label: t.lab },
-    { key: "bio", label: t.bioTab },
-  ];
-
-  const pad = size === "lg" ? "py-3 text-base" : "py-2 text-sm";
-  const width =
-    size === "lg" ? "min-w-[14ch]" : "min-w-[12ch]"; // equal width
-  const gap = size === "lg" ? "gap-5" : "gap-4";
-
-  return (
-    <div className="mx-auto my-6 max-w-[1200px] px-4 md:my-8">
-      <div className={`flex ${gap} justify-center`}>
-        {tabs.map((btn) => (
-          <button
-            key={btn.key}
-            onClick={() => onChange(btn.key)}
-            className={
-              `${theme.radiusMax} px-6 ${pad} ${width} text-center transition shadow-sm border ` +
-              (current === btn.key
-                ? theme.tabActive
-                : theme.tabInactive)
-            }
-          >
-            {btn.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function MediaLightbox({ open, onClose, media, title, index }) {
   if (!open) return null;
+   const { theme } = useTheme();
   const m = media[index];
   const isVideo = m?.type === "youtube";
 
@@ -123,11 +88,15 @@ function MediaLightbox({ open, onClose, media, title, index }) {
 
 // ---- MAIN COMPONENT ----
 
-export default function PortfolioDemo() {
+function PortfolioInner() {
   const [lang, setLang] = useState("en");
-  const [fontSize, setFontSize] = useState("base");
-  const [section, setSection] = useState("projects");
-  const t = copy[lang];
+  const [fontSize, setFontSize] = useState("sm");
+  const [section, setSection] = useState("graphics");
+
+  const { theme, themeId, nextTheme, prevTheme } = useTheme();
+
+  const t = { en, es }[lang];
+  const cards = cardsData;
 
   const textSize =
     fontSize === "sm"
@@ -136,15 +105,10 @@ export default function PortfolioDemo() {
       ? "text-lg"
       : "text-base";
 
-  const items = useMemo(
-    () =>
-      section === "projects"
-        ? projects
-        : section === "lab"
-        ? lab
-        : [],
-    [section]
-  );
+  const items = useMemo(() => {
+    if (section === "bio") return [];
+    return cards.filter((card) => card.tags?.includes(section));
+  }, [section, cards]);
 
   const [lightbox, setLightbox] = useState({
     open: false,
@@ -163,86 +127,117 @@ export default function PortfolioDemo() {
 
   return (
     <div
-      className={`min-h-screen ${theme.pageBg} ${theme.fontBody} ${theme.textMain} ${textSize}`}
+      className={`
+        relative min-h-screen
+        ${theme.pageBg}
+        ${theme.fontBody}
+        ${theme.textMain}
+        ${textSize}
+      `}
     >
-      {/* Desktop header + floating toolbar */}
-      {!isMobile && (
-        <>
-          <ToolbarFloating
+      {/* Grain Texture (THIS IS THE ONE THAT WAS LOST) */}
+      <div
+        className={`
+          absolute inset-0
+          pointer-events-none
+          opacity-15
+          bg-repeat
+          z-0
+          ${theme.bgTexture}
+        `}
+        aria-hidden="true"
+      />
+
+      {/* All content ABOVE grain */}
+      <div className="relative z-10">
+        {!isMobile && (
+          <>
+            <ToolbarFloating
+              t={t}
+              lang={lang}
+              setLang={setLang}
+              fontSize={fontSize}
+              setFontSize={setFontSize}
+              themeId={themeId}
+              onNextTheme={nextTheme}
+              onPrevTheme={prevTheme}
+            />
+            <BioHeaderDesktop t={t} />
+          </>
+        )}
+
+        {isMobile && (
+          <BioHeaderMobile
             t={t}
             lang={lang}
             setLang={setLang}
             fontSize={fontSize}
             setFontSize={setFontSize}
           />
-          <BioHeaderDesktop t={t} />
-        </>
-      )}
-
-      {/* Mobile header */}
-      {isMobile && (
-        <BioHeaderMobile
-          t={t}
-          lang={lang}
-          setLang={setLang}
-          fontSize={fontSize}
-          setFontSize={setFontSize}
-        />
-      )}
-
-      {/* Tabs */}
-      <SectionTabs
-        size="lg"
-        t={t}
-        current={section}
-        onChange={setSection}
-      />
-
-      {/* Main content */}
-      <main className="mx-auto max-w-[1200px] px-4 pt-6 pb-24">
-        {section === "bio" ? (
-          <article className={`max-w-none ${theme.textMain}`}>
-            <h2 className={`mb-2 text-2xl ${theme.heading}`}>
-              {t.bioTab}
-            </h2>
-            <p>
-              Long-form professional story goes here—how 3D/2D art led
-              to tools and web dev, the problems you like to solve, and
-              what you’re exploring next.
-            </p>
-          </article>
-        ) : (
-          <div
-            className="grid gap-6 justify-center"
-            style={{
-              gridTemplateColumns: isWideForGrid
-                ? "repeat(2, minmax(0, 600px))"
-                : "minmax(0, 1fr)",
-            }}
-          >
-            {items.map((p) => (
-              <ProjectCard
-                key={p.id}
-                item={p}
-                t={t}
-                onOpenMedia={openMedia}
-              />
-            ))}
-          </div>
         )}
-      </main>
 
-      {/* Footer */}
-      <FooterBar t={t} />
+        <SectionTabs
+          t={t}
+          size="lg"
+          current={section}
+          onChange={setSection}
+        />
 
-      {/* Media Viewer */}
-      <MediaLightbox
-        open={lightbox.open}
-        onClose={closeMedia}
-        media={lightbox.item?.media || []}
-        title={lightbox.item?.title || ""}
-        index={lightbox.index}
-      />
+        <main className="mx-auto max-w-[1200px] px-4 pt-6 pb-24">
+          {section === "bio" ? (
+            <article className={`max-w-none ${theme.textMain}`}>
+              <h2 className={`mb-2 text-2xl ${theme.heading}`}>
+                {t.bioTab}
+              </h2>
+              <p>
+                Long-form professional story goes here—how 3D/2D art led
+                to tools and web dev, the problems you like to solve, and
+                what you’re exploring next.
+              </p>
+            </article>
+          ) : (
+            <div
+              className="grid gap-6 justify-center"
+              style={{
+                gridTemplateColumns: isWideForGrid
+                  ? "repeat(2, minmax(0, 600px))"
+                  : "minmax(0, 1fr)",
+              }}
+            >
+              {items.map((p) => (
+  <ProjectCard
+    key={p.id}
+    item={p}
+    t={t}
+    lang={lang}        // 👈 add this
+    onOpenMedia={openMedia}
+  />
+))}
+
+            </div>
+          )}
+        </main>
+
+        <FooterBar t={t} />
+
+        <MediaLightbox
+          open={lightbox.open}
+          onClose={closeMedia}
+          media={lightbox.item?.media || []}
+          title={lightbox.item?.title || ""}
+          index={lightbox.index}
+        />
+      </div>
     </div>
   );
 }
+
+
+export default function PortfolioDemo() {
+  return (
+    <ThemeProvider>
+      <PortfolioInner />
+    </ThemeProvider>
+  );
+}
+

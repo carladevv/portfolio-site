@@ -1,6 +1,6 @@
 {
   "name": "Carladevv.com",
-  "tagline": "> Fullstack web developer - art, accesibility, culture and science.",
+  "tagline": "web developer building tools for art, accessibility & education",
   "projects": "Projects",
   "lab": "Lab",
   "bioTab": "Bio",
@@ -9,5 +9,22 @@
   "moreMedia": "More media",
   "language": "Language",
   "fontSize": "Font size",
-  "footerNote": "Portfolio source on GitHub"
+  "footerNote": "Portfolio source on GitHub",
+
+    "sections": {
+    "graphics": "Graphics",
+    "accessibility": "Accessibility",
+    "tooling": "Tooling",
+    "archaeology": "Archaeology",
+    "science": "Science",
+    "bio": "Journey"
+  },
+
+   "links": {
+    "trySite": "Try site",
+    "readArticle": "Read article",
+    "githubRepo": "Github repo",
+    "chromeWebStore": "Chrome Web Store",
+    "firefoxAddons": "Firefox Add-ons"
+  }
 }

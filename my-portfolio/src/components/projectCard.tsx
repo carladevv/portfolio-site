@@ -1,7 +1,5 @@
 import React from "react";
-import { activeTheme } from "../themes";
-
-const theme = activeTheme;
+import { useTheme } from "../ThemeContext";
 
 /* -------------------------------------------------
    TYPES
@@ -21,18 +19,32 @@ export interface ProjectLink {
   label: string;
 }
 
-export interface ProjectItem {
-  id: string | number;
+export type ProjectPriority = "high" | "mid" | "low";
+
+export interface ProjectContent {
   title: string;
   description: string;
+  links?: ProjectLink[];
+  link?: string; // in case you ever need a simple single link
+}
+
+export interface ProjectItem {
+  id: string | number;
+  tags: string[];
   tech: string[];
   media: MediaItem[];
-  links?: ProjectLink[];
-  link?: string;
+
+  // new metadata
+  startDate?: string; // "YYYY-MM-DD"
+  priority?: ProjectPriority;
+
+  // per-language content, e.g. { en: {...}, es: {...} }
+  content: Record<string, ProjectContent>;
 }
 
 export interface ProjectCardProps {
   item: ProjectItem;
+  lang: string; // "en" | "es" etc.
   t: {
     techStack: string;
     moreMedia: string;
@@ -45,6 +57,7 @@ export interface ProjectCardProps {
    CHIP
 --------------------------------------------------*/
 function Chip({ children }: { children: React.ReactNode }) {
+  const { theme } = useTheme();
   return (
     <span
       className={`inline-flex items-center px-3 py-1 text-xs ${theme.chip} ${theme.radiusMax}`}
@@ -55,29 +68,73 @@ function Chip({ children }: { children: React.ReactNode }) {
 }
 
 /* -------------------------------------------------
+   HELPERS
+--------------------------------------------------*/
+
+function formatPriority(priority?: ProjectPriority) {
+  if (!priority) return null;
+  if (priority === "high") return "High priority";
+  if (priority === "mid") return "Medium priority";
+  if (priority === "low") return "Low priority";
+  return null;
+}
+
+function getYearFromDate(date?: string) {
+  if (!date) return null;
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.getFullYear();
+}
+
+/* -------------------------------------------------
    PROJECT CARD COMPONENT
 --------------------------------------------------*/
 
 export default function ProjectCard({
   item,
+  lang,
   t,
   onOpenMedia,
 }: ProjectCardProps) {
+  const { theme } = useTheme();
   const hero = item.media?.[0];
   const isHeroVideo = hero?.type === "youtube";
 
+  // pick the right language block, with sensible fallbacks
+  const contentForLang =
+    item.content?.[lang] ??
+    item.content?.en ??
+    Object.values(item.content || {})[0];
+
+  const title = contentForLang?.title ?? "";
+  const description = contentForLang?.description ?? "";
+  const links = contentForLang?.links;
+  const singleLink = contentForLang?.link;
+
+  const priorityLabel = formatPriority(item.priority);
+  const year = getYearFromDate(item.startDate);
+
   return (
     <article
-      className={`${theme.card} ${theme.radiusSoft} flex w-full flex-col gap-4 p-4 shadow-sm backdrop-blur`}
+      className={`${theme.card} ${theme.radiusSoft} flex w-full flex-col gap-4 p-4 shadow-sm backdrop-blur bg-opacity-90`}
     >
       {/* TEXT BLOCK */}
       <div>
         <h3 className={`text-xl font-light ${theme.fontHeading}`}>
-          {item.title}
+          {title}
         </h3>
 
+        {(priorityLabel || year) && (
+          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
+            
+            {year && (
+              <span className={theme.textSubtle}>{year}</span>
+            )}
+          </div>
+        )}
+
         <p className={`mt-2 font-thin ${theme.textMain}`}>
-          {item.description}
+          {description}
         </p>
 
         {/* TECH */}
@@ -121,9 +178,9 @@ export default function ProjectCard({
         </div>
 
         {/* OVERLAY LINKS */}
-        {(item.links?.length || item.link) && (
+        {(links?.length || singleLink) && (
           <div className="pointer-events-auto absolute bottom-2 left-2 flex max-w-[90%] flex-wrap gap-2">
-            {item.links?.map((lnk: ProjectLink, i: number) => (
+            {links?.map((lnk: ProjectLink, i: number) => (
               <a
                 key={i}
                 href={lnk.href}
@@ -133,9 +190,9 @@ export default function ProjectCard({
               </a>
             ))}
 
-            {!item.links?.length && item.link && (
+            {!links?.length && singleLink && (
               <a
-                href={item.link}
+                href={singleLink}
                 className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
               >
                 {t.viewLink}
@@ -159,49 +216,53 @@ export default function ProjectCard({
       </div>
 
       {/* THUMBNAILS */}
-      <div className="mt-1">
-        <h5 className={`mb-2 text-xs uppercase tracking-wide ${theme.textSubtle}`}>
-          {t.moreMedia}
-        </h5>
+      {item.media.length > 1 && (
+        <div className="mt-1">
+          <h5
+            className={`mb-2 text-xs uppercase tracking-wide ${theme.textSubtle}`}
+          >
+            {t.moreMedia}
+          </h5>
 
-        <div className="grid grid-cols-3 gap-2 md:grid-cols-5">
-          {item.media.map((m: MediaItem, idx: number) => {
-            const isVideo = m.type === "youtube";
+          <div className="grid grid-cols-3 gap-2 md:grid-cols-5">
+            {item.media.map((m: MediaItem, idx: number) => {
+              const isVideo = m.type === "youtube";
 
-            const thumbSrc = isVideo
-              ? m.thumb ||
-                (m.youtubeId
-                  ? `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`
-                  : "")
-              : m.src;
+              const thumbSrc = isVideo
+                ? m.thumb ||
+                  (m.youtubeId
+                    ? `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`
+                    : "")
+                : m.src;
 
-            return (
-              <button
-                key={idx}
-                className={`relative block overflow-hidden border border-black/20 focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme.radiusSoft}`}
-                onClick={() => onOpenMedia(item, idx)}
-                aria-label={`Open media ${idx + 1} for ${item.title}`}
-              >
-                <div className="aspect-video w-full">
-                  <img
-                    src={thumbSrc}
-                    alt={m.alt || m.caption || (isVideo ? "Video" : "Image")}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+              return (
+                <button
+                  key={idx}
+                  className={`relative block overflow-hidden border border-black/20 focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme.radiusSoft}`}
+                  onClick={() => onOpenMedia(item, idx)}
+                  aria-label={`Open media ${idx + 1} for ${title}`}
+                >
+                  <div className="aspect-video w-full">
+                    <img
+                      src={thumbSrc}
+                      alt={m.alt || m.caption || (isVideo ? "Video" : "Image")}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
 
-                {isVideo && (
-                  <span className="pointer-events-none absolute inset-0 grid place-items-center">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/60">
-                      ▶
+                  {isVideo && (
+                    <span className="pointer-events-none absolute inset-0 grid place-items-center">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/60">
+                        ▶
+                      </span>
                     </span>
-                  </span>
-                )}
-              </button>
-            );
-          })}
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </article>
   );
 }

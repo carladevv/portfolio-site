@@ -1,6 +1,6 @@
 {
   "name": "Carladevv.com",
-  "tagline": "Desarrolladora web fullstack - arte, accesibilidad, cultura y ciencia",
+  "tagline": "Desarrolladora web creando herramientas para la creación artística, la accesibilidad y la educación",
   "projects": "Proyectos",
   "lab": "Lab",
   "bioTab": "Bio",
@@ -9,5 +9,23 @@
   "moreMedia": "Más multimedia",
   "language": "Idioma",
   "fontSize": "Tamaño de fuente",
-  "footerNote": "Código del portafolio en GitHub"
+  "footerNote": "Código del portafolio en GitHub",
+
+   "sections": {
+    "graphics": "Gráficos",
+    "accessibility": "Accesibilidad",
+    "tooling": "Herramientas",
+    "archaeology": "Arqueología",
+    "science": "Ciencia",
+    "bio": "Trayectoria"
+  },
+
+  "links": {
+    "trySite": "Probar sitio",
+    "readArticle": "Leer artículo",
+    "githubRepo": "Repositorio en GitHub",
+    "chromeWebStore": "Chrome Web Store",
+    "firefoxAddons": "Complementos de Firefox"
+  }
+
 }

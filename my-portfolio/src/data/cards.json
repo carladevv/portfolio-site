@@ -1,0 +1,380 @@
+[
+  {
+    "id": "p1",
+    "tags": ["graphics", "science"],
+    "startDate": "2024-01-01",
+    "priority": "high",
+    "tech": [
+      "React",
+      "Three.js / R3F",
+      "Node.js",
+      "WebGL"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/mg-01.png",
+        "alt": "Main hall",
+        "caption": "Auto-generated museum based on dynamic user data."
+      },
+      {
+        "type": "image",
+        "src": "/images/mg-02.png",
+        "alt": "Main hall",
+        "caption": "Auto-generated museum based on dynamic user data."
+      },
+      {
+        "type": "image",
+        "src": "/images/mg-03.png",
+        "alt": "Main hall",
+        "caption": "Auto-generated museum based on dynamic user data."
+      },
+      {
+        "type": "image",
+        "src": "/images/mg-04.png",
+        "alt": "Main hall",
+        "caption": "To mock the backend API response, a spreadsheet is used during development to load the museum data."
+      },
+      {
+        "type": "image",
+        "src": "/images/mg-05.png",
+        "alt": "Main hall",
+        "caption": "Generated layour for a museum consisting of 3 rooms."
+      }
+    ],
+    "content": {
+      "en": {
+        "title": "3D Museum Generator",
+        "description": "Full-stack app that builds interactive 3D museums from a list of models/data. Node.js backend and React/Three.js frontend.",
+        "links": [
+          {
+            "href": "https://museum-generator-userpov.netlify.app/",
+            "label": "Try site"
+          }
+        ]
+      },
+      "es": {
+        "title": "Generador de museos 3D",
+        "description": "Aplicación full-stack que genera museos 3D interactivos a partir de listas de modelos y datos. Backend en Node.js y frontend en React/Three.js.",
+        "links": [
+          {
+            "href": "https://museum-generator-userpov.netlify.app/",
+            "label": "Probar sitio"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "p3",
+    "tags": ["tooling"],
+    "startDate": "2023-06-01",
+    "priority": "mid",
+    "tech": [
+      "React",
+      "JavaScript"
+    ],
+    "media": [
+      {
+        "src": "/images/fw-00.png",
+        "alt": "FicWeaver"
+      }
+    ],
+    "content": {
+      "en": {
+        "title": "FicWeaver",
+        "description": "Node-based writing tool for planning linear stories—tags, annotations, and bird’s-eye narrative view.",
+        "links": [
+          {
+            "href": "https://squirrelcarla.gumroad.com/l/ficweaver",
+            "label": "Try site"
+          }
+        ]
+      },
+      "es": {
+        "title": "FicWeaver",
+        "description": "Herramienta de escritura basada en nodos para planificar historias lineales, con etiquetas, anotaciones y una vista global de la narrativa.",
+        "links": [
+          {
+            "href": "https://squirrelcarla.gumroad.com/l/ficweaver",
+            "label": "Probar sitio"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "p4",
+    "tags": ["accessibility", "tooling"],
+    "startDate": "2023-11-01",
+    "priority": "high",
+    "tech": [
+      "JavaScript",
+      "Chrome Extensions API",
+      "WebExtensions"
+    ],
+    "media": [
+      {
+        "src": "/images/sp-gif.gif",
+        "alt": "Extension hero"
+      },
+      {
+        "type": "youtube",
+        "youtubeId": "sAK4slyl-k8",
+        "caption": "Add-On Demo"
+      },
+      {
+        "src": "/images/sp-01.PNG",
+        "alt": "'Box' highlight style."
+      },
+      {
+        "src": "/images/sp-02.png",
+        "alt": "'Highlight' highlight style."
+      },
+      {
+        "src": "/images/sp-03.png",
+        "alt": "'No highlight' highlight style."
+      },
+      {
+        "src": "/images/sp-04.png",
+        "alt": "'Line gradient (bg)' highlight style."
+      },
+      {
+        "src": "/images/sp-05.png",
+        "alt": "'Sentence gradient (bg)' highlight style."
+      },
+      {
+        "src": "/images/sp-06.png",
+        "alt": "'Sentence gradient (text)' highlight style."
+      }
+    ],
+    "content": {
+      "en": {
+        "title": "Sentence Stepper",
+        "description": "Sentence Stepper is a browser extension for Chrome and Firefox designed to enhance focus and accessibility while reading online. It cuts through visual clutter by isolating and highlighting a single sentence at a time, dimming the rest of the page. Readers can navigate at their own pace using a minimal toolbar or keyboard shortcuts, making it an invaluable tool for neurodivergent individuals, language learners, or anyone engaging with dense text. The tool offers customizable highlight styles, requires no data collection, and operates entirely on your device to ensure privacy.",
+        "links": [
+          {
+            "href": "https://chromewebstore.google.com/detail/sentence-stepper/cfiappnihemjkaaepefjfofagcobikek?hl=en&authuser=0",
+            "label": "Chrome Web Store"
+          },
+          {
+            "href": "https://www.linkedin.com/…",
+            "label": "Firefox Add-ons"
+          }
+        ]
+      },
+      "es": {
+        "title": "Sentence Stepper",
+        "description": "Sentence Stepper es una extensión para Chrome y Firefox pensada para mejorar la concentración y la accesibilidad al leer en la web. Resalta una sola frase a la vez y atenúa el resto de la página, permitiendo avanzar con un toolbar mínimo o atajos de teclado. Es útil para personas neurodivergentes, estudiantes de idiomas o cualquiera que lea textos densos. Ofrece estilos de resaltado personalizables, no recopila datos y funciona totalmente en tu dispositivo.",
+        "links": [
+          {
+            "href": "https://chromewebstore.google.com/detail/sentence-stepper/cfiappnihemjkaaepefjfofagcobikek?hl=en&authuser=0",
+            "label": "Chrome Web Store"
+          },
+          {
+            "href": "https://www.linkedin.com/…",
+            "label": "Complementos de Firefox"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "l1",
+    "tags": ["graphics", "science", "tooling"],
+    "startDate": "2024-02-01",
+    "priority": "high",
+    "tech": [
+      "React",
+      "Node.js",
+      "AI APIs"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/ech-00.PNG",
+        "alt": "Expressive AI Chatbot",
+        "caption": "Expressive AI Chatbot"
+      },
+      {
+        "type": "image",
+        "src": "/images/ech-01.PNG",
+        "alt": "Expressive AI Chatbot",
+        "caption": "Expressive AI Chatbot"
+      },
+      {
+        "type": "image",
+        "src": "/images/ech-02.PNG",
+        "alt": "Expressive AI Chatbot",
+        "caption": "Prompt building process that accounts for user input and character personality"
+      }
+    ],
+    "content": {
+      "en": {
+        "title": "Expressive AI Chatbot",
+        "description": "Expressive 2D chatbot prototype using AI APIs; responds with animations that match the character's emotion. I was asked to showcase the demo in a guest lecture on creative applications of AI at IES Rafael Alberti in Cádiz, Spain.",
+        "links": [
+          {
+            "href": "https://animatedchatbotproject.netlify.app/",
+            "label": "Try site"
+          },
+          {
+            "href": "https://github.com/CarlaCGDM/animated_chatbot_project",
+            "label": "Github repo"
+          }
+        ]
+      },
+      "es": {
+        "title": "Chatbot de IA expresivo",
+        "description": "Prototipo de chatbot 2D expresivo que usa APIs de IA y responde con animaciones que reflejan la emoción del personaje. El demo se presentó en una charla sobre aplicaciones creativas de la IA en el IES Rafael Alberti (Cádiz).",
+        "links": [
+          {
+            "href": "https://animatedchatbotproject.netlify.app/",
+            "label": "Probar sitio"
+          },
+          {
+            "href": "https://github.com/CarlaCGDM/animated_chatbot_project",
+            "label": "Repositorio en GitHub"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "l2",
+    "tags": ["graphics", "science"],
+    "startDate": "2023-09-01",
+    "priority": "mid",
+    "tech": [
+      "React",
+      "Three.js",
+      "AI APIs"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/aii-06.gif",
+        "alt": "AI Island",
+        "caption": "AI Island"
+      },
+      {
+        "type": "youtube",
+        "youtubeId": "D6WjLdvj5pI",
+        "caption": "Proof of concept demo"
+      },
+      {
+        "type": "image",
+        "src": "/images/aii-00.png",
+        "alt": "AI Island",
+        "caption": "AI Island"
+      },
+      {
+        "type": "image",
+        "src": "/images/aii-01.png",
+        "alt": "AI Island",
+        "caption": "AI Island"
+      },
+      {
+        "type": "image",
+        "src": "/images/aii-02.png",
+        "alt": "AI Island",
+        "caption": "AI Island"
+      },
+      {
+        "type": "image",
+        "src": "/images/aii-03.PNG",
+        "alt": "AI Island",
+        "caption": "Early development stage"
+      },
+      {
+        "type": "image",
+        "src": "/images/aii-04.png",
+        "alt": "AI Island",
+        "caption": "Early development stage"
+      },
+      {
+        "type": "image",
+        "src": "/images/aii-05.png",
+        "alt": "AI Island",
+        "caption": "Early development stage"
+      }
+    ],
+    "content": {
+      "en": {
+        "title": "AI Island",
+        "description": "3D world concept exploring character interaction and emotional feedback with AI. The player watches AI chatbots talk to each other and comment on their environment according to their various personalities, with animations matching their emotions. A tracker shows the friendship index between the various characters based on the outcome of their conversations. In the future, I will add goals for the characters to pursue and ways for the player to influence the outcome.",
+        "links": [
+          {
+            "href": "https://threejs-crossing.netlify.app/",
+            "label": "Try site"
+          },
+          {
+            "href": "https://www.linkedin.com/pulse/videojuegos-nativos-web-mec%C3%A1nica-de-npcs-estilo-con-y-nadina-carla-d47oe/?trackingId=nMa2SJpuTsqGhiNt7cWArA%3D%3D",
+            "label": "Read article"
+          },
+          {
+            "href": "https://github.com/CarlaCGDM/threejs-crossing",
+            "label": "Github repo"
+          }
+        ]
+      },
+      "es": {
+        "title": "AI Island",
+        "description": "Concepto de mundo 3D que explora la interacción entre personajes y la retroalimentación emocional con IA. El jugador observa cómo chatbots de distintas personalidades comentan el entorno, con animaciones que reflejan sus emociones y un índice de amistad que cambia según sus conversaciones. En el futuro se añadirán objetivos para los personajes y formas de que el jugador influya en el resultado.",
+        "links": [
+          {
+            "href": "https://threejs-crossing.netlify.app/",
+            "label": "Probar sitio"
+          },
+          {
+            "href": "https://www.linkedin.com/pulse/videojuegos-nativos-web-mec%C3%A1nica-de-npcs-estilo-con-y-nadina-carla-d47oe/?trackingId=nMa2SJpuTsqGhiNt7cWArA%3D%3D",
+            "label": "Leer artículo"
+          },
+          {
+            "href": "https://github.com/CarlaCGDM/threejs-crossing",
+            "label": "Repositorio en GitHub"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "l3",
+    "tags": ["graphics", "tooling"],
+    "startDate": "2022-05-01",
+    "priority": "low",
+    "tech": [
+      "Python",
+      "Blender API"
+    ],
+    "media": [
+      {
+        "src": "/media/blender-hero.jpg",
+        "alt": "Blender tools"
+      }
+    ],
+    "content": {
+      "en": {
+        "title": "Blender Automation Tools",
+        "description": "Python add-ons for automating 3D art workflows: batch LOD generation and icon rendering.",
+        "links": [
+          {
+            "href": "#blender-tools",
+            "label": "More media"
+          }
+        ]
+      },
+      "es": {
+        "title": "Herramientas de automatización para Blender",
+        "description": "Complementos en Python para automatizar flujos de trabajo de arte 3D: generación por lotes de LOD e iconos renderizados.",
+        "links": [
+          {
+            "href": "#blender-tools",
+            "label": "Más multimedia"
+          }
+        ]
+      }
+    }
+  }
+]
+

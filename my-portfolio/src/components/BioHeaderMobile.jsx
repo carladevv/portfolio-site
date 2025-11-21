@@ -1,9 +1,8 @@
 // src/components/BioHeaderMobile.jsx
 import React from "react";
-import { activeTheme } from "../themes";
+import { useTheme } from "../ThemeContext";
 import LanguageSelector from "./LanguageSelector";
 
-const theme = activeTheme;
 
 export default function BioHeaderMobile({
   t,
@@ -12,6 +11,9 @@ export default function BioHeaderMobile({
   fontSize,
   setFontSize,
 }) {
+
+const { theme } = useTheme();
+
   return (
     <div className={`w-full ${theme.headerStrip}`}>
       {/* toolbar – normal, not floating */}
@@ -50,7 +52,7 @@ export default function BioHeaderMobile({
           {t.name}
         </h1>
         <p className={`mt-2 text-sm uppercase ${theme.headerTextMuted}`}>
-          {t.tagline}
+          { "> " + t.tagline}
         </p>
       </div>
     </div>
