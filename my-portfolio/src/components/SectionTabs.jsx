@@ -126,7 +126,7 @@ export default function SectionTabs({ t, current, onChange, size = "md" }) {
                 onClick={() => onChange(s.key)}
                 className={`
                   ${theme.radiusMax} px-6 ${pad} ${width}
-                  text-center transition shadow-sm border
+                  ${theme.fontHeading} text-center transition shadow-sm border
                   flex items-center justify-center gap-2 uppercase
                   ${active ? theme.tabActive : theme.tabInactive}
                 `}

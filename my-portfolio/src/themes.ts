@@ -181,7 +181,7 @@ export const themes: Record<ThemeId, Theme> = {
         bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
 
         fontBody: "font-renroseBody",
-        fontHeading: "font-renroseHeading  tracking-[0.2em]  uppercase",
+        fontHeading: "font-renroseHeading  tracking-[0.1em]  uppercase",
 
         textMain: "text-neutral-100",
         textMuted: "text-neutral-400",
