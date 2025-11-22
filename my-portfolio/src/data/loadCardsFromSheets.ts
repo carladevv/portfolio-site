@@ -14,7 +14,6 @@ export interface MediaItem {
   src?: string;
   youtubeId?: string;
   thumb?: string;
-  // for translated alt/caption
   i18n?: Record<string, MediaI18nEntry>;
 }
 
@@ -35,13 +34,15 @@ export interface ProjectItem {
   tech: string[];
   startDate?: string;
   priority?: ProjectPriority;
+  visibility?: "on" | "off";
   media: MediaItem[];
   content: Record<string, ProjectContent>;
 }
 
 // ---- Google Sheets config ----
 
-const SHEET_ID = "1A8Uy5IHVBIrk7dsfYhtuRxTRy7lZxgskdLOGbPc2iHE"; // from the URL
+const SHEET_ID =
+  "1A8Uy5IHVBIrk7dsfYhtuRxTRy7lZxgskdLOGbPc2iHE"; // from the URL
 
 const makeCsvUrl = (gid: string) =>
   `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${gid}`;
@@ -69,8 +70,9 @@ function parseCsv(url: string): Promise<any[]> {
       download: true,
       header: true,
       skipEmptyLines: true,
-      complete: (results) => resolve(results.data as any[]),
-      error: (err) => reject(err),
+      // Explicit `any` fixes TS 7006 and avoids the ParseResult typing issue
+      complete: (results: any) => resolve(results.data as any[]),
+      error: (err: any) => reject(err),
     });
   });
 }
@@ -82,6 +84,13 @@ function splitList(value?: string): string[] {
     .map((v) => v.trim())
     .filter(Boolean);
 }
+
+// Optional sort helper config
+const PRIORITY_ORDER: Record<string, number> = {
+  high: 0,
+  mid: 1,
+  low: 2,
+};
 
 // ---- Main loader ----
 
@@ -107,6 +116,7 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
       tags: splitList(row.tags),
       startDate: row.startDate || undefined,
       priority: (row.priority || undefined) as ProjectPriority | undefined,
+      visibility: (row.visibility?.toLowerCase() || "on") as "on" | "off",
       tech: splitList(row.tech),
       media: [],
       content: {},
@@ -125,7 +135,7 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
     card.content[lang] = {
       title: row.title || "",
       description: row.description || "",
-      links: [], // we'll fill this below
+      links: [],
     };
   }
 
@@ -145,11 +155,14 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
     const [id, lang] = key.split("__");
     const card = cardsMap.get(id);
     if (!card) return;
-    const content = card.content[lang] || (card.content[lang] = {
-      title: "",
-      description: "",
-      links: [],
-    });
+
+    const content =
+      card.content[lang] ||
+      (card.content[lang] = {
+        title: "",
+        description: "",
+        links: [],
+      });
 
     const sorted = [...rows].sort(
       (a, b) => Number(a.order || 0) - Number(b.order || 0)
@@ -161,7 +174,7 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
     }));
   });
 
-  // 4) Media (language-agnostic structural data)
+  // 4) Media rows
   const mediaByCard: Record<string, MediaItem[]> = {};
   for (const row of mediaRows) {
     const id = row.cardId?.toString().trim();
@@ -181,17 +194,17 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
     mediaByCard[id][index] = item;
   }
 
-  // 5) Media i18n (alt + caption per lang)
+  // 5) Media i18n rows
   for (const row of mediaI18nRows) {
     const id = row.cardId?.toString().trim();
     const lang = row.lang?.toString().trim();
     if (!id || !lang) continue;
 
     const index = Number(row.index ?? 0);
-    const cardMedia = mediaByCard[id];
-    if (!cardMedia || !cardMedia[index]) continue;
+    const mediaList = mediaByCard[id];
+    if (!mediaList || !mediaList[index]) continue;
 
-    const item = cardMedia[index];
+    const item = mediaList[index];
     if (!item.i18n) item.i18n = {};
     item.i18n[lang] = {
       alt: row.alt || "",
@@ -199,13 +212,14 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
     };
   }
 
-  // Attach media arrays onto cards
+  // Attach media to cards
   for (const [id, mediaArray] of Object.entries(mediaByCard)) {
     const card = cardsMap.get(id);
     if (!card) continue;
     card.media = mediaArray;
   }
 
-  // Return as array
-  return Array.from(cardsMap.values());
+  // Convert to array
+  const cards = Array.from(cardsMap.values());
+  return cards;
 }

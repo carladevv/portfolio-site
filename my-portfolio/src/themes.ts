@@ -2,11 +2,8 @@
 
 export type ThemeId =
     | "emeraldDark"
-    | "natgeoClassic"
-    | "baroqueRose"
     | "renaissanceStone"
-    | "terminalMono"
-    | "renaissanceRose";
+    | "technoRose";
 
 export interface Theme {
     id: ThemeId;
@@ -62,12 +59,14 @@ export interface Theme {
 }
 
 export const themes: Record<ThemeId, Theme> = {
-    // ---------------- EMERALD DARK (original) ----------------
     emeraldDark: {
         id: "emeraldDark",
         label: "Emerald Dark",
 
         pageBg: "bg-zinc-950",
+        bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
+
+
         fontBody: "font-sans",
         fontHeading: "font-sans",
 
@@ -111,77 +110,15 @@ export const themes: Record<ThemeId, Theme> = {
 
         lightboxBackdrop: "bg-black/80",
     },
-
-    // ---------------- VIOLET GLASS ----------------
-
-    baroqueRose: {
-        id: "baroqueRose",
-        label: "Baroque Rose",
-
-        // Deep plum background, light text
-        pageBg: "bg-[#261627]",
-        fontBody: "font-baroqueBody",
-        fontHeading: "font-baroqueHeading",
-
-
-        // Text system
-        textMain: "text-[#EBDFDC]",          // Pearl Bush
-        textMuted: "text-[#EBDFDC]/80",
-        textSubtle: "text-[#EBDFDC]/60",
-        heading: "text-white",
-        accentText: "text-[#926868]",        // Copper Rose
-        accentSoftText: "text-[#3c384d]",    // Gun Powder
-
-        // Header-specific text (background here is darker than body)
-        headerTextMain: "text-[#EBDFDC]",
-        headerTextMuted: "text-[#EBDFDC]/75",
-
-        // Rounding
-        radiusNone: "rounded-none",
-        radiusSoft: "rounded-2xl",
-        radiusMax: "rounded-3xl",
-
-        // Major surfaces
-        headerStrip: "border-b border-[#4e3742] bg-[#3c384d]",
-        card: "border border-[#4e3742] bg-[#3c384d]/95",
-        footerBar: "border-t border-[#4e3742] bg-[#261627]/95",
-
-        // Toolbar
-        toolbar:
-            "border border-[#4e3742] bg-[#3c384d]/90 text-[#EBDFDC]/85",
-        toolbarSelect:
-            "border border-[#4e3742] bg-[#261627] text-[#EBDFDC]",
-        toolbarPill: "border border-[#4e3742]",
-        toolbarPillActive: "bg-[#926868] text-[#EBDFDC]",
-        toolbarPillInactive:
-            "bg-[#3c384d] text-[#EBDFDC]/80 hover:bg-[#4e3742]",
-
-        // Chips
-        chip:
-            "border border-[#926868] bg-[#926868]/20 text-[#EBDFDC]",
-
-        // Buttons
-        primaryButton:
-            "border border-[#926868] bg-[#926868] text-[#EBDFDC] hover:bg-[#b27f80]",
-        footerButton:
-            "border border-[#3c384d] bg-[#3c384d]/60 text-[#EBDFDC]/90 hover:bg-[#3c384d]",
-
-        // Tabs
-        tabActive:
-            "border-[#EBDFDC] text-[#EBDFDC] bg-[#4e3742]",
-        tabInactive:
-            "border-[#4e3742] text-[#EBDFDC]/80 bg-transparent hover:bg-[#3c384d]",
-
-        // Overlays
-        lightboxBackdrop: "bg-black/80",
-    },
-
     renaissanceStone: {
         id: "renaissanceStone",
         label: "Renaissance Stone",
 
         // Background + base font
         pageBg: "bg-[#E6DCCB]",   // light stone
+        bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
+
+
         fontBody: "font-renBody",
         fontHeading: "font-renHeading",
 
@@ -236,125 +173,12 @@ export const themes: Record<ThemeId, Theme> = {
         // Overlay
         lightboxBackdrop: "bg-black/80",
     },
-
-
-    // ---------------- NAT GEO STYLE ----------------
-    natgeoClassic: {
-        id: "natgeoClassic",
-        label: "National Geographic",
-
-        pageBg: "bg-neutral-100",
-        fontBody: "font-ngBody",
-        fontHeading: "font-ngHeading",
-
-
-        textMain: "text-neutral-900",
-        textMuted: "text-neutral-600",
-        textSubtle: "text-neutral-500",
-        heading: "text-black",
-        accentText: "text-orange-800",
-        accentSoftText: "text-orange-700",
-        headerTextMain: "text-white",
-        headerTextMuted: "text-neutral-300",
-
-
-        radiusNone: "rounded-none",
-        radiusSoft: "rounded-md",
-        radiusMax: "rounded-xl",
-
-        headerStrip: "border-b border-neutral-300 bg-neutral-800 text-white",
-        card: "border border-neutral-300 bg-white",
-        footerBar: "border-t border-neutral-300 bg-neutral-800 text-white",
-
-        toolbar:
-            "border border-neutral-400 bg-neutral-200 text-neutral-900",
-        toolbarSelect:
-            "border border-neutral-400 bg-white text-neutral-900",
-        toolbarPill: "border border-neutral-500",
-        toolbarPillActive: "bg-orange-700 text-white",
-        toolbarPillInactive:
-            "bg-neutral-200 text-neutral-700 hover:bg-neutral-300",
-
-        chip:
-            "border border-orange-700 bg-orange-50 text-orange-900 font-medium",
-
-        primaryButton:
-            "border border-orange-800 bg-orange-700 text-white hover:bg-orange-600",
-        footerButton:
-            "border border-orange-600 bg-orange-700/20 text-orange-200 hover:bg-orange-700/40",
-
-        tabActive:
-            "border-orange-700 text-white bg-orange-700",
-        tabInactive:
-            "border-neutral-400 text-neutral-700 bg-white hover:bg-neutral-100",
-
-        lightboxBackdrop: "bg-black/90",
-    },
-
-    terminalMono: {
-        id: "terminalMono",
-        label: "Terminal Mono",
+    technoRose: {
+        id: "technoRose",
+        label: "Techno Rose",
 
         pageBg: "bg-neutral-950",
-
-        // Typography – monospace everywhere
-        fontBody: "font-mono",
-        fontHeading: "font-mono tracking-[0.2em] uppercase",
-
-        // Text colors
-        textMain: "text-neutral-100",
-        textMuted: "text-neutral-400",
-        textSubtle: "text-neutral-500",
-        heading: "text-neutral-50",
-        accentText: "text-orange-500",
-        accentSoftText: "text-orange-400",
-        headerTextMain: "text-neutral-50",
-        headerTextMuted: "text-neutral-400",
-
-        // Fully sharp corners
-        radiusNone: "rounded-none",
-        radiusSoft: "rounded-none",
-        radiusMax: "rounded-none",
-
-        // Shell-like chrome
-        headerStrip: "border-b border-neutral-800 bg-black text-neutral-50",
-        card: "border border-neutral-800 bg-neutral-900",
-        footerBar: "border-t border-neutral-800 bg-black text-neutral-400",
-
-        // Toolbar + pills
-        toolbar:
-            "border border-neutral-700 bg-neutral-900 text-neutral-100",
-        toolbarSelect:
-            "border border-neutral-600 bg-black text-neutral-50",
-        toolbarPill: "border border-neutral-600",
-        toolbarPillActive: "bg-orange-700 text-black",
-        toolbarPillInactive:
-            "bg-neutral-900 text-neutral-400 hover:bg-neutral-800",
-
-        // Chips / tags
-        chip:
-            "border border-orange-700 bg-orange-900/40 text-orange-300 font-medium",
-
-        // Buttons – terminal amber feel
-        primaryButton:
-            "border border-orange-700 bg-orange-700 text-black hover:bg-orange-600 hover:border-orange-500",
-        footerButton:
-            "border border-orange-700 bg-orange-900/30 text-orange-300 hover:bg-orange-800/60",
-
-        // Tabs
-        tabActive:
-            "border-orange-700 text-orange-100 bg-neutral-900",
-        tabInactive:
-            "border-neutral-700 text-neutral-400 bg-black hover:bg-neutral-900",
-
-        lightboxBackdrop: "bg-black/95",
-    },
-    renaissanceRose: {
-        id: "renaissanceRose",
-        label: "Velvet Terminal",
-
-        pageBg: "bg-neutral-950",
-  bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
+        bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
 
         fontBody: "font-renroseBody",
         fontHeading: "font-renroseHeading  tracking-[0.2em]  uppercase",
@@ -416,14 +240,11 @@ export const themes: Record<ThemeId, Theme> = {
 // Change this to switch theme globally for now
 // Order in which themes will cycle with the arrows
 export const THEME_ORDER: ThemeId[] = [
-  "emeraldDark",
-  "baroqueRose",
-  "renaissanceStone",
-  "natgeoClassic",
-  "terminalMono",
-  "renaissanceRose",
+    "emeraldDark",
+    "renaissanceStone",
+    "technoRose",
 ];
 
 // Default theme when the app loads
-export const ACTIVE_THEME_ID: ThemeId = "renaissanceRose";
+export const ACTIVE_THEME_ID: ThemeId = "technoRose";
 

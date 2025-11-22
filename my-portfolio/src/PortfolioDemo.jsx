@@ -13,6 +13,7 @@ import BioHeaderMobile from "./components/BioHeaderMobile";
 import BioHeaderDesktop from "./components/BioHeaderDesktop";
 import FooterBar from "./components/FooterBar";
 import SectionTabs from "./components/SectionTabs";
+import BioSection from "./components/BioSection";
 
 import { ThemeProvider, useTheme } from "./ThemeContext";
 
@@ -110,8 +111,8 @@ function PortfolioInner() {
     fontSize === "sm"
       ? "text-sm"
       : fontSize === "lg"
-      ? "text-lg"
-      : "text-base";
+        ? "text-lg"
+        : "text-base";
 
   // load cards from Google Sheets once on mount
   useEffect(() => {
@@ -140,8 +141,33 @@ function PortfolioInner() {
 
   const items = useMemo(() => {
     if (section === "bio") return [];
-    return cards.filter((card) => card.tags?.includes(section));
+
+    const PRIORITY_ORDER = {
+      high: 0,
+      mid: 1,
+      low: 2,
+    };
+
+    return cards
+      .filter((card) => {
+        // hide cards with visibility === "off"
+        const isVisible = card.visibility !== "off";
+        const inSection = card.tags?.includes(section);
+        return isVisible && inSection;
+      })
+      .sort((a, b) => {
+        // sort by priority: high → mid → low
+        // const pa = PRIORITY_ORDER[a.priority || "low"];
+        // const pb = PRIORITY_ORDER[b.priority || "low"];
+        // if (pa !== pb) return pa - pb;
+
+        // then by startDate: newest first
+        const da = new Date(a.startDate || 0).getTime();
+        const db = new Date(b.startDate || 0).getTime();
+        return db - da;
+      });
   }, [section, cards]);
+
 
   const [lightbox, setLightbox] = useState({
     open: false,
@@ -218,16 +244,7 @@ function PortfolioInner() {
 
         <main className="mx-auto max-w-[1200px] px-4 pt-6 pb-24">
           {section === "bio" ? (
-            <article className={`max-w-none ${theme.textMain}`}>
-              <h2 className={`mb-2 text-2xl ${theme.heading}`}>
-                {t.bioTab}
-              </h2>
-              <p>
-                Long-form professional story goes here—how 3D/2D art led
-                to tools and web dev, the problems you like to solve, and
-                what you’re exploring next.
-              </p>
-            </article>
+            <BioSection t={t} />
           ) : cardsLoading ? (
             <p className={theme.textSubtle}>Loading projects…</p>
           ) : (
