@@ -1,8 +1,8 @@
 // src/components/BioHeaderMobile.jsx
-import React from "react";
 import { useTheme } from "../ThemeContext";
 import LanguageSelector from "./LanguageSelector";
-import { Linkedin, Github, Youtube } from "lucide-react";
+import { SiLinkedin, SiGithub, SiYoutube } from "react-icons/si";
+
 
 export default function BioHeaderMobile({
   t,
@@ -79,7 +79,7 @@ export default function BioHeaderMobile({
             rel="noopener noreferrer"
             className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-1`}
           >
-            <Linkedin size={14} />
+            <SiLinkedin size={14} />
             LinkedIn
           </a>
 
@@ -89,7 +89,7 @@ export default function BioHeaderMobile({
             rel="noopener noreferrer"
             className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-1`}
           >
-            <Github size={14} />
+            <SiGithub size={14} />
             GitHub
           </a>
 
@@ -99,7 +99,7 @@ export default function BioHeaderMobile({
             rel="noopener noreferrer"
             className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-1`}
           >
-            <Youtube size={14} />
+            <SiYoutube size={14} />
             Youtube
           </a>
         </div>

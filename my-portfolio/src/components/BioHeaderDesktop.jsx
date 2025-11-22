@@ -1,9 +1,9 @@
 // src/components/BioHeaderDesktop.jsx
-import React from "react";
 import { useTheme } from "../ThemeContext";
 
-// lucide icons
-import { Linkedin, Github, Youtube } from "lucide-react";
+// react icons
+import { SiLinkedin, SiGithub, SiYoutube } from "react-icons/si";
+
 
 export default function BioHeaderDesktop({ t }) {
   const { theme } = useTheme();
@@ -47,7 +47,7 @@ export default function BioHeaderDesktop({ t }) {
     rel="noopener noreferrer"
     className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-2`}
   >
-    <Linkedin size={16} />
+    <SiLinkedin size={16} />
     linkedin.com/nadina-carla-cardillo
   </a>
 
@@ -58,7 +58,7 @@ export default function BioHeaderDesktop({ t }) {
     rel="noopener noreferrer"
     className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-2`}
   >
-    <Github size={16} />
+    <SiGithub size={16} />
     github.com/carladevv
   </a>
 
@@ -69,7 +69,7 @@ export default function BioHeaderDesktop({ t }) {
     rel="noopener noreferrer"
     className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-2`}
   >
-    <Youtube size={16} />
+    <SiYoutube size={16} />
     youtube.com/carladevv
   </a>
 </div>
