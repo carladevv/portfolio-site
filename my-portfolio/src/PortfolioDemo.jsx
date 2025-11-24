@@ -242,7 +242,7 @@ function PortfolioInner() {
           onChange={setSection}
         />
 
-        <main className="mx-auto max-w-[1200px] px-4 pt-6 pb-24">
+        <main className="mx-auto max-w-[1300px] px-4 pt-6 pb-24">
           {section === "bio" ? (
             <BioSection t={t} />
           ) : cardsLoading ? (

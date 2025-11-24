@@ -8,67 +8,135 @@ import { useTheme } from "../ThemeContext";
 
 const BIO_CARDS = [
   {
-    id: "early-3d",
-    title: "Early 3D & Illustration",
-    timeframe: "2012–2016",
-    imageSrc: "/images/bio/early-3d.png",
+    id: "bio_1",
+    title: "Early life",
+    timeframe: "1994-2002",
+    imageSrc: "/images/bio/bio_1.png",
     imageAlt: "Early 3D and illustration work",
     paragraphs: [
-      "I started out as a 3D and 2D artist, obsessed with lighting, materials, and tiny details nobody would ever zoom in to see.",
-      "Those years made me very opinionated about how tools should feel in the hands of artists, and planted the seed for building my own."
+      "I have fond memories of my childhood in Uruguay, playing early educational computer games with my father and visiting the library with my mother, where choose-your-own-adventure books were by far my favourite.",
+      "My preference in this regard has not changed much as I have continued to enjoy choice-based games and visual novels consistently throughout the years.",
+
     ]
   },
   {
-    id: "tools-pipeline",
-    title: "Tools, Pipelines & UX",
-    timeframe: "2017–2021",
-    imageSrc: "/images/bio/tools.png",
+    id: "bio_2",
+    title: "The World Wide Web",
+    timeframe: "2002-2012",
+    imageSrc: "/images/bio/bio_2.png",
     imageAlt: "Tools and pipeline sketches",
     paragraphs: [
-      "I gradually shifted into pipeline and tools work: convincing software to help instead of fight the people using it.",
-      "Most of my time went into debugging weird edge cases, automating manual workflows, and trying to make UI that didn't make artists cry."
+      "We got internet at home around the time I started high school in Spain. I was immediately drawn to the idea of virtual spaces and making friends from all around the world, so I became very active online.",
+      "The internet gave me access to a vast wealth of specialized learning resources even far beyond what my local library could contain. I spent countless hours following tutorials on the topics of drawing, websites and game development."
     ]
   },
   {
-    id: "web-dev",
-    title: "Web, Prototyping & Systems",
-    timeframe: "2022–now",
-    imageSrc: "/images/bio/web.png",
+    id: "bio_3",
+    title: "Art School",
+    timeframe: "2012-2020",
+    imageSrc: "/images/bio/bio_3.png",
     imageAlt: "Interface mockups and code",
     paragraphs: [
-      "These days I live somewhere between design and engineering: front-end dev, prototypes, and small systems that need both structure and vibes.",
-      "I like building things that feel playful on the surface but are actually very intentional and well-structured underneath."
+      "I studied Fine Arts at the University of Seville after graduating High School, but I struggled severely due to health complications that arose during this time.",
+      "I discovered an unexpected deep love of traditional clay sculpture at university, and I wrote my thesis on the benefits of a background in traditional sculpting for a career in digital sculpting.",
+      "The work was highly praised by my professors due to its unexpected technical complexity and I was able to graduate with honors on my chosen specialization of Art & Technology.",
+
+    ]
+  },
+  {
+    id: "bio_4",
+    title: "Coding School",
+    timeframe: "2020-2022",
+    imageSrc: "/images/bio/bio_4.png",
+    imageAlt: "Interface mockups and code",
+    paragraphs: [
+      "I moved from my previous work as an freelance Blender instructor to fulltime work as a 3D generalist at a local 3D printing company after graduating university.",
+      "As I kept learning more about 3D graphics I became fascinated by the possibility of using custom scripts inside programs such as Blender or Maya and sought to learn more.",
+      "Eventually I decided to sign up for a 2-year associate's degree in Web Development at my local community college. I was very lucky to have amazing teachers that did not tire of my endless questions.",
+    ]
+  },
+  {
+    id: "bio_5",
+    title: "Technical Art",
+    timeframe: "2022-2024",
+    imageSrc: "/images/bio/bio_5.png",
+    imageAlt: "Interface mockups and code",
+    paragraphs: [
+      "Very unexpectedly, I landed my first game development job at a company dedicated to creating educational video games and immersive cultural experiences.",
+      "Though I was hired as a 3D artist, my role became increasingly more technical, and I loved the opportunity that it provided to delve deeper into the math behind the art.",
+      "While this role was immensely rewarding, I decided to return to freelancing when the company shifted its focus away from the education and culture sectors."
+    ]
+  },
+  {
+    id: "bio_6",
+    title: "3D Graphics & Mathematics",
+    timeframe: "2024-2026",
+    imageSrc: "/images/bio/bio_6.png",
+    imageAlt: "Interface mockups and code",
+    paragraphs: [
+      "I took a short break to pursue the first semester of a Mathematics degree while continuing to develop my own personal projects, most of which you can find featured on this site.",
+      "I am very lucky to have now started working with Laura Gómez Morgado and the Quaternari Research Group at University of Barcelona on a few upcoming 3D web experiences that we can't wait to share!",
+      "I am still available for part-time freelance work, so please not hesitate to contact me at nadinaccg@gmail.com if you believe I can be useful to your project.",
+
     ]
   }
+
 ];
 
 const RECENT_READS = [
   {
     id: "book-1",
-    title: "Designing Data-Intensive Applications",
-    author: "Martin Kleppmann",
-    date: "2024-03",
+    title: "Force: Dynamic Life Drawing for Animators",
+    author: "★★★★★ Mike Mattesi - 2006",
+    date: "2006",
     rating: 5,
     description:
-      "Dense but very readable overview of how modern data systems actually work. Great for zooming out of day-to-day code and thinking in terms of tradeoffs."
+      "The one book that made the weight and rhythm of the human body 'click' for me. I keep coming back to it."
   },
   {
     id: "book-2",
-    title: "The Shape of Design",
-    author: "Frank Chimero",
-    date: "2023-11",
-    rating: 4,
+    title: "Morpho: Fat and Skin Folds",
+    author: "★★★★★ Michel Lauricella - 2019",
+    date: "2019",
+    rating: 5,
     description:
-      "Short, reflective essays about what design is for, beyond shipping pixels. More philosophy than how-to, in a good way."
+      "A much needed and deeply insightful collection of drawings of an often overlooked topic within anatomical study."
   },
   {
     id: "book-3",
-    title: "Refactoring UI",
-    author: "Adam Wathan & Steve Schoger",
+    title: "Making Deep Games: Designing Games with Meaning and Purpose",
+    author: "★★★☆☆ Doris C. Rusch - 2017",
     date: "2023-05",
-    rating: 4,
+    rating: 3,
     description:
-      "Very practical visual design advice. Lots of small tweaks that immediately translated into better-looking interfaces."
+      "An interesting exploration of games as a vehicle for personal self-discovery. "
+  },
+  {
+    id: "book-4",
+    title: "Atrocity Fabrication and Its Consequences: How Fake News Shapes World Order",
+    author: "★★★★★ A.B. Abrams - 2023",
+    date: "2023-05",
+    rating: 5,
+    description:
+      "A thorough breakdown of the propaganda tactics employed by the media to fabricate consent for war."
+  },
+  {
+    id: "book-5",
+    title: "Groups and Symmetry",
+    author: "★★★★☆ M.A. Armstrong - 1988",
+    date: "2023-05",
+    rating: 5,
+    description:
+      "An overview of the topic of group theory through bite-sized chapters and plenty of exercises. I am using it as a supplement to my university textbooks, as it assumes previous knowledge."
+  },
+  {
+    id: "book-6",
+    title: "3D Math Primer for Graphics and Game Development",
+    author: "★★★★★ Fletcher Dunn and Ian Parberry - 2002",
+    date: "2023-05",
+    rating: 5,
+    description:
+      "So far a very approachable introduction to the study of the mathematics behind the geometry of a 3D world. "
   }
 ];
 
@@ -106,18 +174,19 @@ function BioCard({ card }) {
     <article
       className={`flex w-full flex-col gap-4 p-4 shadow-sm backdrop-blur bg-opacity-90 md:flex-row md:items-start`}
     >
-        {/* IMAGE */}
+      {/* IMAGE */}
       {card.imageSrc && (
-        <div className="w-full md:w-20 md:flex-shrink-0">
-          <div className={`overflow-hidden ${theme.radiusSoft}`}>
-            <img
-              src={card.imageSrc}
-              alt={card.imageAlt || card.title}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-      )}
+  <div className="flex-shrink-0">
+    <div className={`h-[30px] w-[30px] overflow-hidden ${theme.radiusSoft}`}>
+      <img
+        src={card.imageSrc}
+        alt={card.imageAlt || card.title}
+        className="h-full w-full object-contain"
+      />
+    </div>
+  </div>
+)}
+
       {/* TEXT */}
       <div className="flex-1">
         <div className="flex flex-wrap items-baseline gap-2">
@@ -138,7 +207,7 @@ function BioCard({ card }) {
         </div>
       </div>
 
-      
+
     </article>
   );
 }
@@ -159,8 +228,7 @@ function RecentReadsBox() {
           Recent reads
         </h3>
         <p className={`mt-1 text-xs ${theme.textSubtle}`}>
-          A rotating list of books that influenced how I think about tools,
-          design, and systems.
+          ---
         </p>
       </header>
 
@@ -178,7 +246,7 @@ function RecentReadsBox() {
                     {book.author}
                   </p>
                 </div>
-                <div className="text-right text-xs">
+                {/* <div className="text-right text-xs">
                   {book.date && (
                     <p className={theme.textSubtle}>
                       {formatMonthYear(book.date)}
@@ -187,10 +255,10 @@ function RecentReadsBox() {
                   <p className="mt-0.5">
                     <StarRating value={book.rating} />
                   </p>
-                </div>
+                </div> */}
               </div>
 
-              <p className={`mt-1 text-xs md:text-sm ${theme.textMain}`}>
+              <p className={`mt-1 text-xs md:text-sm ${theme.textSubtle}`}>
                 {book.description}
               </p>
             </div>
@@ -201,6 +269,7 @@ function RecentReadsBox() {
   );
 }
 
+
 /* -------------------------------------------------
    MAIN BIO SECTION LAYOUT
 --------------------------------------------------*/
@@ -209,10 +278,16 @@ export default function BioSection({ t }) {
   const { theme } = useTheme();
 
   return (
-    // full width inside the main container
-    <section className="w-full">
-      {/* intro across the full width */}
-      <header className="mb-4">
+    <section className="relative w-full">
+      {/* DESKTOP: books on the right (not sticky) */}
+      <div className="hidden lg:block absolute top-0 right-0">
+        <div className="mr-6 w-[460px]">
+          <RecentReadsBox />
+        </div>
+      </div>
+
+      {/* Intro – reserve space for books on the right */}
+      <header className="mb-4 lg:pr-[500px]">
         <h2 className={`mb-1 text-2xl ${theme.heading}`}>
           {t.bioTab}
         </h2>
@@ -222,25 +297,21 @@ export default function BioSection({ t }) {
         </p>
       </header>
 
-      {/* desktop: books left, bio cards right */}
-      <div
-        className="
-          mt-6 grid gap-8
-          md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]
-          lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]
-        "
-      >
-        
-        {/* LEFT: single column of bio cards */}
-        <div className="space-y-4">
-          {BIO_CARDS.map((card) => (
-            <BioCard key={card.id} card={card} />
-          ))}
-        </div>
+      {/* Bio cards – same width as before, just reserving room on the right */}
+      <div className="mt-6 space-y-4 lg:pr-[500px]">
+        {BIO_CARDS.map((card) => (
+          <BioCard key={card.id} card={card} />
+        ))}
+      </div>
 
-        {/* RIGHT: books */}
+      {/* MOBILE/TABLET: books after the bio section */}
+      <div className="mt-6 lg:hidden">
         <RecentReadsBox />
       </div>
     </section>
   );
 }
+
+
+
+
