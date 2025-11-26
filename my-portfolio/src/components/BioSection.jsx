@@ -27,7 +27,7 @@ const BIO_CARDS = [
     imageAlt: "Tools and pipeline sketches",
     paragraphs: [
       "We got internet at home around the time I started high school in Spain. I was immediately drawn to the idea of virtual spaces and making friends from all around the world, so I became very active online.",
-      "The internet gave me access to a vast wealth of specialized learning resources even far beyond what my local library could contain. I spent countless hours following tutorials on the topics of drawing, websites and game development."
+      "The internet gave me access to a vast wealth of specialized learning resources. I spent countless hours following tutorials on the topics of drawing, websites and game development."
     ]
   },
   {
@@ -76,7 +76,6 @@ const BIO_CARDS = [
     paragraphs: [
       "I took a short break to pursue the first semester of a Mathematics degree while continuing to develop my own personal projects, most of which you can find featured on this site.",
       "I am very lucky to have now started working with Laura Gómez Morgado and the Quaternari Research Group at University of Barcelona on a few upcoming 3D web experiences that we can't wait to share!",
-      "I am still available for part-time freelance work, so please not hesitate to contact me at nadinaccg@gmail.com if you believe I can be useful to your project.",
 
     ]
   }
@@ -292,7 +291,7 @@ export default function BioSection({ t }) {
           {t.bioTab}
         </h2>
         <p className={`max-w-2xl text-sm ${theme.textSubtle}`}>
-          A quick timeline of how I ended up mixing art, tools, and code —
+          A quick timeline of how I ended up mixing art, math and technology —
           and some of the books that shaped how I think about all of it.
         </p>
       </header>
