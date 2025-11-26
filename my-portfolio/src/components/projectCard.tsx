@@ -1,3 +1,4 @@
+// src/components/ProjectCard.tsx
 import React from "react";
 import { useTheme } from "../ThemeContext";
 
@@ -26,6 +27,10 @@ export interface ProjectContent {
   description: string;
   links?: ProjectLink[];
   link?: string; // in case you ever need a simple single link
+
+  // ✅ New fields from the content sheet (per language)
+  role?: string;
+  client?: string;
 }
 
 export interface ProjectItem {
@@ -86,6 +91,35 @@ function getYearFromDate(date?: string) {
   return d.getFullYear();
 }
 
+// Build the "YEAR - ROLE CLIENT" line
+function buildMetaLine(
+  year?: number | null,
+  roleRaw?: string | null,
+  clientRaw?: string | null
+): string {
+  const yearStr = year != null ? String(year) : "";
+  const role = roleRaw?.trim() || "";
+  const client = clientRaw?.trim() || "";
+
+  if (!yearStr && !role && !client) return "";
+
+  let base = "";
+  if (yearStr && role) {
+    base = `${yearStr} - ${role}`;
+  } else if (yearStr) {
+    base = yearStr;
+  } else if (role) {
+    base = role;
+  }
+
+  if (client) {
+    if (base) return `${base} ${client}`;
+    return client;
+  }
+
+  return base;
+}
+
 /* -------------------------------------------------
    PROJECT CARD COMPONENT
 --------------------------------------------------*/
@@ -114,6 +148,11 @@ export default function ProjectCard({
   const priorityLabel = formatPriority(item.priority);
   const year = getYearFromDate(item.startDate);
 
+  // ✅ role + client from the same per-lang content we load from Sheets
+  const role = contentForLang?.role ?? null;
+  const client = contentForLang?.client ?? null;
+  const metaLine = buildMetaLine(year, role, client);
+
   return (
     <article
       className={`${theme.card} ${theme.radiusSoft} flex w-full flex-col gap-4 p-4 shadow-sm backdrop-blur bg-opacity-90`}
@@ -124,12 +163,16 @@ export default function ProjectCard({
           {title}
         </h3>
 
-        {(priorityLabel || year) && (
+        {(priorityLabel || metaLine) && (
           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
-
-            {year && (
-              <span className={theme.textSubtle}>{year}</span>
+            {metaLine && (
+              <span className={theme.textSubtle}>{metaLine}</span>
             )}
+            {/* If you ever want to display priority too, you can uncomment this:
+            {priorityLabel && (
+              <span className={theme.textSubtle}>· {priorityLabel}</span>
+            )}
+            */}
           </div>
         )}
 
@@ -230,9 +273,9 @@ export default function ProjectCard({
 
               const thumbSrc = isVideo
                 ? m.thumb ||
-                (m.youtubeId
-                  ? `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`
-                  : "")
+                  (m.youtubeId
+                    ? `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`
+                    : "")
                 : m.src;
 
               return (

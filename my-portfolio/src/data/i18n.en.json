@@ -1,9 +1,10 @@
 {
   "name": "Carladevv.com",
   "tagline": "web developer building tools for games, science & education",
-  "projects": "Projects",
-  "lab": "Lab",
-  "bioTab": "Journey",
+  "bioTab": "A bit about me",
+  "bioIntro": "I enjoy being in a constant state of change, always chasing deeper knowledge of all that I come into contact with. It is always my goal to use my skills to shape a better world.",
+  "recentReadsTitle": "Recent reads",
+  "recentReadsSubtitle": "---",
   "techStack": "Tech stack",
   "viewLink": "View project",
   "moreMedia": "More media",

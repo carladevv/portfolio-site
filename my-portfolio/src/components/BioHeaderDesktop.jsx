@@ -48,7 +48,7 @@ export default function BioHeaderDesktop({ t }) {
     className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-2`}
   >
     <SiLinkedin size={16} />
-    linkedin.com/nadina-carla-cardillo
+    LinkedIn
   </a>
 
   {/* GitHub */}
@@ -59,7 +59,7 @@ export default function BioHeaderDesktop({ t }) {
     className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-2`}
   >
     <SiGithub size={16} />
-    github.com/carladevv
+    GitHub
   </a>
 
   {/* YouTube */}
@@ -70,7 +70,7 @@ export default function BioHeaderDesktop({ t }) {
     className={`underline ${theme.headerTextMuted} hover:${theme.headerTextMain} transition-colors flex items-center gap-2`}
   >
     <SiYoutube size={16} />
-    youtube.com/carladevv
+    YouTube
   </a>
 </div>
 

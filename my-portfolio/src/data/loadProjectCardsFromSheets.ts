@@ -1,4 +1,4 @@
-// src/data/loadCardsFromSheets.ts
+// src/data/loadProjectCardsFromSheets.ts
 import Papa from "papaparse";
 
 // Types should match your ProjectItem / MediaItem in ProjectCard
@@ -26,6 +26,11 @@ export interface ProjectContent {
   title: string;
   description: string;
   links?: ProjectLink[];
+
+  // ✅ New fields coming from the CONTENT sheet
+  // Columns: role, client
+  role?: string;
+  client?: string;
 }
 
 export interface ProjectItem {
@@ -41,18 +46,19 @@ export interface ProjectItem {
 
 // ---- Google Sheets config ----
 
+// ⬇️ Replace with your actual spreadsheet ID
 const SHEET_ID =
   "1A8Uy5IHVBIrk7dsfYhtuRxTRy7lZxgskdLOGbPc2iHE"; // from the URL
 
 const makeCsvUrl = (gid: string) =>
   `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${gid}`;
 
-// Replace these with your actual gid values:
-const CARDS_GID = "1342167327";
-const CONTENT_GID = "1339198058";
-const LINKS_GID = "487248610";
-const MEDIA_GID = "653713178";
-const MEDIA_I18N_GID = "1167060745";
+// ⬇️ Replace these with your actual gid values
+const CARDS_GID = "1342167327";   // base card metadata (id, tags, startDate, priority, tech, visibility)
+const CONTENT_GID = "1339198058"; // per-language content (cardId, lang, title, description, role, client)
+const LINKS_GID = "487248610";    // per-language links
+const MEDIA_GID = "653713178";    // media list
+const MEDIA_I18N_GID = "1167060745"; // media alt/caption per lang
 
 const URLS = {
   cards: makeCsvUrl(CARDS_GID),
@@ -85,7 +91,7 @@ function splitList(value?: string): string[] {
     .filter(Boolean);
 }
 
-// Optional sort helper config
+// Optional sort helper config (unused for now, kept for future)
 const PRIORITY_ORDER: Record<string, number> = {
   high: 0,
   mid: 1,
@@ -94,7 +100,7 @@ const PRIORITY_ORDER: Record<string, number> = {
 
 // ---- Main loader ----
 
-export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
+export async function loadProjectCardsFromSheets(): Promise<ProjectItem[]> {
   const [cardsRows, contentRows, linksRows, mediaRows, mediaI18nRows] =
     await Promise.all([
       parseCsv(URLS.cards),
@@ -124,6 +130,8 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
   }
 
   // 2) Content by (cardId, lang)
+  // Expected columns in CONTENT sheet:
+  // cardId | lang | title | description | role | client
   for (const row of contentRows) {
     const id = row.cardId?.toString().trim();
     const lang = row.lang?.toString().trim();
@@ -136,6 +144,9 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
       title: row.title || "",
       description: row.description || "",
       links: [],
+      // ✅ Read role/client directly from this sheet
+      role: row.role || "",
+      client: row.client || "",
     };
   }
 
@@ -162,6 +173,8 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
         title: "",
         description: "",
         links: [],
+        role: "",
+        client: "",
       });
 
     const sorted = [...rows].sort(
@@ -219,7 +232,7 @@ export async function loadCardsFromSheets(): Promise<ProjectItem[]> {
     card.media = mediaArray;
   }
 
-  // Convert to array
+  // Convert to array (filtering/sorting can be done here or at render time)
   const cards = Array.from(cardsMap.values());
   return cards;
 }

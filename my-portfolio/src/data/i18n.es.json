@@ -1,17 +1,17 @@
 {
   "name": "Carladevv.com",
   "tagline": "desarrollando herramientas web para videojuegos, ciencia y educación",
-  "projects": "Proyectos",
-  "lab": "Lab",
-  "bioTab": "Bio",
+  "bioTab": "Mi trayectoria",
+  "bioIntro": "Me gusta estar en un estado de cambio constante, buscando siempre profundizar en todo aquello con lo que me cruzo. Mi objetivo es usar mis habilidades para ayudar a construir un mundo mejor.",
+  "recentReadsTitle": "Lecturas recientes",
+  "recentReadsSubtitle": "---",
   "techStack": "Tecnologías",
   "viewLink": "Ver proyecto",
   "moreMedia": "Más multimedia",
   "language": "Idioma",
   "fontSize": "Tamaño de fuente",
   "footerNote": "Código del portafolio en GitHub",
-
-   "sections": {
+  "sections": {
     "graphics": "Gráficos",
     "accessibility": "Accesibilidad",
     "tooling": "Herramientas",
@@ -19,7 +19,6 @@
     "science": "Ciencia",
     "bio": "Trayectoria"
   },
-
   "links": {
     "trySite": "Probar sitio",
     "readArticle": "Leer artículo",
@@ -27,5 +26,4 @@
     "chromeWebStore": "Chrome Web Store",
     "firefoxAddons": "Complementos de Firefox"
   }
-
 }

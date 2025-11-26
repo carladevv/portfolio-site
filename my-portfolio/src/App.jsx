@@ -3,7 +3,8 @@ import React, { useMemo, useState, useEffect } from "react";
 
 import en from "./data/i18n.en.json";
 import es from "./data/i18n.es.json";
-import { loadCardsFromSheets } from "./data/loadCardsFromSheets";
+import { loadProjectCardsFromSheets } from "./data/loadProjectCardsFromSheets";
+import { loadBioCardsFromSheets } from "./data/loadBioCardsFromSheets";
 
 import ProjectCard from "./components/projectCard";
 import ToolbarFloating from "./components/ToolbarFloating";
@@ -89,8 +90,13 @@ function Portfolio() {
   const [lang, setLang] = useState("en");
   const [fontSize, setFontSize] = useState("sm");
   const [section, setSection] = useState(() => getSectionFromLocation());
+
   const [cards, setCards] = useState([]);
   const [cardsLoading, setCardsLoading] = useState(true);
+
+  // NEW: bio + reads from Sheets
+  const [bioCards, setBioCards] = useState([]);
+  const [recentReads, setRecentReads] = useState([]);
 
   const { theme, themeId, nextTheme, prevTheme } = useTheme();
   const t = { en, es }[lang];
@@ -108,10 +114,23 @@ function Portfolio() {
 
     async function fetchData() {
       try {
-        const loaded = await loadCardsFromSheets();
-        if (!cancelled) setCards(loaded);
+        const [projectCards, bioData] = await Promise.all([
+          loadProjectCardsFromSheets(),
+          loadBioCardsFromSheets(),
+        ]);
+
+        if (cancelled) return;
+
+        setCards(projectCards || []);
+
+        // Be tolerant about the shape: reads or recentReads
+        const loadedBioCards = bioData?.bioCards || [];
+        const loadedReads = bioData?.reads || bioData?.recentReads || [];
+
+        setBioCards(loadedBioCards);
+        setRecentReads(loadedReads);
       } catch (err) {
-        console.error("Failed to load cards:", err);
+        console.error("Failed to load data from Sheets:", err);
       } finally {
         if (!cancelled) setCardsLoading(false);
       }
@@ -155,7 +174,7 @@ function Portfolio() {
 
   //
   // ───────────────────────────────────────────────────────────
-  //  Card filtering and sorting
+  //  Project card filtering and sorting
   // ───────────────────────────────────────────────────────────
   //
 
@@ -264,7 +283,13 @@ function Portfolio() {
         {/* Main Content Area */}
         <main className="mx-auto max-w-[1300px] px-4 pt-6 pb-24">
           {section === "bio" ? (
-            <BioSection t={t} />
+            <BioSection
+              t={t}
+              lang={lang}
+              bioCards={bioCards}
+              recentReads={recentReads}
+              isLoading={cardsLoading}
+            />
           ) : cardsLoading ? (
             <p className={theme.textSubtle}>Loading projects…</p>
           ) : (
