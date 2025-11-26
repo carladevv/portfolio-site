@@ -1,10 +1,14 @@
-// src/components/ProjectCard.tsx
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { useTheme } from "../ThemeContext";
 
 /* -------------------------------------------------
    TYPES
 --------------------------------------------------*/
+
+export interface MediaI18nEntry {
+  alt?: string;
+  caption?: string;
+}
 
 export interface MediaItem {
   type?: "image" | "youtube";
@@ -13,6 +17,7 @@ export interface MediaItem {
   caption?: string;
   youtubeId?: string;
   thumb?: string;
+  i18n?: Record<string, MediaI18nEntry>;
 }
 
 export interface ProjectLink {
@@ -26,9 +31,9 @@ export interface ProjectContent {
   title: string;
   description: string;
   links?: ProjectLink[];
-  link?: string; // in case you ever need a simple single link
+  link?: string;
 
-  // ✅ New fields from the content sheet (per language)
+  // from content sheet
   role?: string;
   client?: string;
 }
@@ -38,29 +43,25 @@ export interface ProjectItem {
   tags: string[];
   tech: string[];
   media: MediaItem[];
-
-  // new metadata
   startDate?: string; // "YYYY-MM-DD"
   priority?: ProjectPriority;
-
-  // per-language content, e.g. { en: {...}, es: {...} }
   content: Record<string, ProjectContent>;
 }
 
 export interface ProjectCardProps {
   item: ProjectItem;
-  lang: string; // "en" | "es" etc.
+  lang: string; // "en" | "es" ...
   t: {
     techStack: string;
     moreMedia: string;
     viewLink: string;
   };
-  onOpenMedia: (item: ProjectItem, index: number) => void;
 }
 
 /* -------------------------------------------------
    CHIP
 --------------------------------------------------*/
+
 function Chip({ children }: { children: React.ReactNode }) {
   const { theme } = useTheme();
   return (
@@ -124,17 +125,10 @@ function buildMetaLine(
    PROJECT CARD COMPONENT
 --------------------------------------------------*/
 
-export default function ProjectCard({
-  item,
-  lang,
-  t,
-  onOpenMedia,
-}: ProjectCardProps) {
+export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
   const { theme } = useTheme();
-  const hero = item.media?.[0];
-  const isHeroVideo = hero?.type === "youtube";
 
-  // pick the right language block, with sensible fallbacks
+  // Pick content for current lang (fallback to en / first)
   const contentForLang =
     item.content?.[lang] ??
     item.content?.en ??
@@ -148,10 +142,31 @@ export default function ProjectCard({
   const priorityLabel = formatPriority(item.priority);
   const year = getYearFromDate(item.startDate);
 
-  // ✅ role + client from the same per-lang content we load from Sheets
   const role = contentForLang?.role ?? null;
   const client = contentForLang?.client ?? null;
   const metaLine = buildMetaLine(year, role, client);
+
+  // ---- MEDIA & CAPTION HANDLING ----
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Merge i18n alt/caption into each media item for the current language
+  const media = useMemo(() => {
+    const fallbackLang = item.content.en ? "en" : Object.keys(item.content || {})[0];
+    const langKey = item.content[lang] ? lang : fallbackLang;
+
+    return (item.media || []).map((m) => {
+      const i18nEntry = m.i18n?.[langKey] || m.i18n?.[fallbackLang] || {};
+      return {
+        ...m,
+        alt: i18nEntry.alt || m.alt,
+        caption: i18nEntry.caption || m.caption,
+      };
+    });
+  }, [item.media, item.content, lang]);
+
+  const hero = media[activeIndex];
+  const isHeroVideo = hero?.type === "youtube";
 
   return (
     <article
@@ -159,16 +174,14 @@ export default function ProjectCard({
     >
       {/* TEXT BLOCK */}
       <div>
-        <h3 className={`text-xl font-light ${theme.fontHeading}`}>
-          {title}
-        </h3>
+        <h3 className={`text-xl font-light ${theme.fontHeading}`}>{title}</h3>
 
         {(priorityLabel || metaLine) && (
           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
             {metaLine && (
               <span className={theme.textSubtle}>{metaLine}</span>
             )}
-            {/* If you ever want to display priority too, you can uncomment this:
+            {/* If you want priority too, uncomment:
             {priorityLabel && (
               <span className={theme.textSubtle}>· {priorityLabel}</span>
             )}
@@ -176,9 +189,7 @@ export default function ProjectCard({
           </div>
         )}
 
-        <p className={`mt-2 font-thin ${theme.textMain}`}>
-          {description}
-        </p>
+        <p className={`mt-2 font-thin ${theme.textMain}`}>{description}</p>
 
         {/* TECH */}
         <div className="mt-4">
@@ -194,96 +205,114 @@ export default function ProjectCard({
         </div>
       </div>
 
-      {/* HERO IMAGE / VIDEO */}
-      <div className="relative overflow-hidden">
-        <div
-          className={`aspect-video w-full overflow-hidden ${theme.radiusSoft}`}
-        >
-          {isHeroVideo ? (
-            <img
-              src={
-                hero?.thumb ||
-                (hero?.youtubeId
-                  ? `https://img.youtube.com/vi/${hero.youtubeId}/hqdefault.jpg`
-                  : "")
-              }
-              alt={hero?.alt || hero?.caption || "Video"}
-              className="h-full w-full cursor-pointer object-cover"
-              onClick={() => onOpenMedia(item, 0)}
-            />
-          ) : (
-            <img
-              src={hero?.src}
-              alt={hero?.alt}
-              className="h-full w-full object-cover"
-            />
-          )}
-        </div>
-
-        {/* OVERLAY LINKS */}
-        {(links?.length || singleLink) && (
-          <div className="pointer-events-auto absolute bottom-2 left-2 flex max-w-[90%] flex-wrap gap-2">
-            {links?.map((lnk: ProjectLink, i: number) => (
-              <a
-                key={i}
-                href={lnk.href}
-                className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
-              >
-                {lnk.label}
-              </a>
-            ))}
-
-            {!links?.length && singleLink && (
-              <a
-                href={singleLink}
-                className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
-              >
-                {t.viewLink}
-              </a>
+      {/* HERO IMAGE / VIDEO (NO LIGHTBOX) */}
+      {hero && (
+        <div className="relative overflow-hidden group">
+          <div
+            className={`aspect-video w-full overflow-hidden ${theme.radiusSoft}`}
+          >
+            {isHeroVideo ? (
+              <img
+                src={
+                  hero.thumb ||
+                  (hero.youtubeId
+                    ? `https://img.youtube.com/vi/${hero.youtubeId}/hqdefault.jpg`
+                    : "")
+                }
+                alt={hero.alt || hero.caption || "Video"}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <img
+                src={hero.src}
+                alt={hero.alt || hero.caption || "Image"}
+                className="h-full w-full object-cover"
+              />
             )}
           </div>
-        )}
 
-        {/* PLAY BADGE FOR VIDEO */}
-        {isHeroVideo && (
-          <button
-            onClick={() => onOpenMedia(item, 0)}
-            aria-label="Play video"
-            className="absolute inset-0 grid place-items-center text-white/95"
-          >
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black/60">
-              ▶
-            </span>
-          </button>
-        )}
-      </div>
 
-      {/* THUMBNAILS */}
-      {item.media.length > 1 && (
-        <div className="mt-1">
-          <h5
+
+          {/* LINKS + CAPTION OVERLAY (bottom-left, dynamic height) */}
+          {(links?.length || singleLink || hero.caption) && (
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-start gap-2 px-0 pb-0">
+              {/* Links row (top) */}
+              {(links?.length || singleLink) && (
+                <div className="pointer-events-auto flex flex-wrap gap-2 px-2">
+                  {links?.map((lnk: ProjectLink, i: number) => (
+                    <a
+                      key={i}
+                      href={lnk.href}
+                      className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
+                    >
+                      {lnk.label}
+                    </a>
+                  ))}
+
+                  {!links?.length && singleLink && (
+                    <a
+                      href={singleLink}
+                      className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
+                    >
+                      {t.viewLink}
+                    </a>
+                  )}
+                </div>
+              )}
+
+              {/* Caption (bottom, full-width, black semi-transparent) */}
+              {hero.caption && (
+                <div className="w-full bg-black/80 px-2 py-1 text-xs text-white">
+                  {hero.caption}
+                </div>
+              )}
+            </div>
+          )}
+
+
+
+          {/* Optional: play badge for video hero (purely visual now) */}
+          {isHeroVideo && (
+            <div className="pointer-events-none absolute inset-0 grid place-items-center text-white/95">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black/60">
+                ▶
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* THUMBNAILS (CLICK TO SWAP HERO, NO LIGHTBOX) */}
+      {media.length > 1 && (
+        <div className="mt-0">
+          {/* <h5
             className={`mb-2 text-xs uppercase tracking-wide ${theme.textSubtle}`}
           >
             {t.moreMedia}
-          </h5>
+          </h5> */}
 
           <div className="grid grid-cols-3 gap-2 md:grid-cols-5">
-            {item.media.map((m: MediaItem, idx: number) => {
+            {media.map((m: MediaItem, idx: number) => {
               const isVideo = m.type === "youtube";
 
               const thumbSrc = isVideo
                 ? m.thumb ||
-                  (m.youtubeId
-                    ? `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`
-                    : "")
+                (m.youtubeId
+                  ? `https://img.youtube.com/vi/${m.youtubeId}/hqdefault.jpg`
+                  : "")
                 : m.src;
+
+              const isActive = idx === activeIndex;
 
               return (
                 <button
                   key={idx}
-                  className={`relative block overflow-hidden border border-black/20 focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme.radiusSoft}`}
-                  onClick={() => onOpenMedia(item, idx)}
-                  aria-label={`Open media ${idx + 1} for ${title}`}
+                  type="button"
+                  className={`relative block overflow-hidden border border-black/20 focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme.radiusSoft} ${isActive ? "opacity-100" : "opacity-60 hover:opacity-100"
+                    }`}
+                  onClick={() => setActiveIndex(idx)}
+                  aria-label={`Show media ${idx + 1} for ${title}`}
+                  aria-pressed={isActive}
                 >
                   <div className="aspect-video w-full">
                     <img

@@ -307,7 +307,6 @@ function Portfolio() {
                   item={p}
                   t={t}
                   lang={lang}
-                  onOpenMedia={openMedia}
                 />
               ))}
             </div>
@@ -315,14 +314,7 @@ function Portfolio() {
         </main>
 
         <FooterBar t={t} />
-
-        <MediaLightbox
-          open={lightbox.open}
-          onClose={closeMedia}
-          media={lightbox.item?.media || []}
-          title={getItemTitle(lightbox.item, lang)}
-          index={lightbox.index}
-        />
+        
       </div>
     </div>
   );
