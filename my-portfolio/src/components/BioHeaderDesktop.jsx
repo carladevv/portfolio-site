@@ -27,7 +27,7 @@ export default function BioHeaderDesktop({ t }) {
         {/* Text block */}
         <div className="flex flex-col justify-center">
           <h1
-            className={`text-3xl font-thin ${
+            className={`text-3xl font-thin uppercase ${
               theme.fontHeading || ""
             } ${theme.headerTextMain}`}
           >

@@ -35,6 +35,8 @@ export interface Theme {
     headerStrip: string;
     card: string;
     footerBar: string;
+    accentBorder: string;
+
 
     // Toolbar (language + font size)
     toolbar: string;
@@ -87,6 +89,7 @@ export const themes: Record<ThemeId, Theme> = {
         headerStrip: "border-b border-zinc-800 bg-zinc-900/80",
         card: "border border-zinc-800 bg-zinc-900/70",
         footerBar: "border-t border-zinc-800 bg-zinc-900/90",
+        accentBorder: "border-emerald-500/30",
 
         toolbar: "border border-zinc-700 bg-zinc-900/80",
         toolbarSelect: "border border-zinc-700 bg-zinc-800 text-zinc-100",
@@ -143,6 +146,7 @@ export const themes: Record<ThemeId, Theme> = {
         headerStrip: "border-b border-[#555550]/40 bg-[#31312C]",
         card: "border border-[#AC8B6C]/40 bg-[#F4EEE4]",
         footerBar: "border-t border-[#555550]/40 bg-[#31312C]",
+        accentBorder: "border-[#AC8B6C]",
 
         // Toolbar
         toolbar:
@@ -181,7 +185,7 @@ export const themes: Record<ThemeId, Theme> = {
         bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
 
         fontBody: "font-renroseBody",
-        fontHeading: "font-renroseHeading  tracking-[0.1em]  uppercase",
+        fontHeading: "font-renroseHeading  tracking-[0.1em] ",
 
         textMain: "text-neutral-100",
         textMuted: "text-neutral-400",
@@ -202,6 +206,7 @@ export const themes: Record<ThemeId, Theme> = {
         headerStrip: "border-b border-neutral-800 bg-black text-neutral-50",
         card: "border border-neutral-800 bg-neutral-950",
         footerBar: "border-t border-neutral-800 bg-black text-neutral-400",
+        accentBorder: "border-[#743a55]",
 
         toolbar:
             "border border-neutral-700 bg-neutral-950 text-neutral-100",

@@ -66,7 +66,7 @@ function Chip({ children }: { children: React.ReactNode }) {
   const { theme } = useTheme();
   return (
     <span
-      className={`inline-flex items-center px-3 py-1 text-xs ${theme.chip} ${theme.radiusMax}`}
+      className={`inline-flex items-center px-3 py-1 text-[0.85em] ${theme.chip} ${theme.radiusMax}`}
     >
       {children}
     </span>
@@ -174,10 +174,10 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
     >
       {/* TEXT BLOCK */}
       <div>
-        <h3 className={`text-xl font-light ${theme.fontHeading}`}>{title}</h3>
+        <h3 className={`text-[1.2em] font-light ${theme.fontHeading}`}>{title}</h3>
 
         {(priorityLabel || metaLine) && (
-          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
+          <div className="mt-1 flex flex-wrap items-center gap-2 text-[0.85em]">
             {metaLine && (
               <span className={theme.textSubtle}>{metaLine}</span>
             )}
@@ -193,7 +193,7 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
 
         {/* TECH */}
         <div className="mt-4">
-          <h4 className={`mb-2 text-sm font-medium ${theme.accentText}`}>
+          <h4 className={`mb-2 text-[1em] font-medium ${theme.accentText}`}>
             {t.techStack}
           </h4>
 
@@ -233,39 +233,10 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
 
 
 
-          {/* LINKS + CAPTION OVERLAY (bottom-left, dynamic height) */}
-          {(links?.length || singleLink || hero.caption) && (
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-start gap-2 px-0 pb-0">
-              {/* Links row (top) */}
-              {(links?.length || singleLink) && (
-                <div className="pointer-events-auto flex flex-wrap gap-2 px-2">
-                  {links?.map((lnk: ProjectLink, i: number) => (
-                    <a
-                      key={i}
-                      href={lnk.href}
-                      className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
-                    >
-                      {lnk.label}
-                    </a>
-                  ))}
-
-                  {!links?.length && singleLink && (
-                    <a
-                      href={singleLink}
-                      className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
-                    >
-                      {t.viewLink}
-                    </a>
-                  )}
-                </div>
-              )}
-
-              {/* Caption (bottom, full-width, black semi-transparent) */}
-              {hero.caption && (
-                <div className="w-full bg-black/80 px-2 py-1 text-xs text-white">
-                  {hero.caption}
-                </div>
-              )}
+          {/* CAPTION (bottom, full-width, black semi-transparent) */}
+          {hero.caption && (
+            <div className="absolute inset-x-0 bottom-0 w-full bg-black/80 px-2 py-1 text-[0.85em] text-white">
+              {hero.caption}
             </div>
           )}
 
@@ -308,18 +279,23 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
                 <button
                   key={idx}
                   type="button"
-                  className={`relative block overflow-hidden border border-black/20 focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme.radiusSoft} ${isActive ? "opacity-100" : "opacity-60 hover:opacity-100"
-                    }`}
                   onClick={() => setActiveIndex(idx)}
                   aria-label={`Show media ${idx + 1} for ${title}`}
                   aria-pressed={isActive}
+                  className={`
+    relative block overflow-hidden ${theme.radiusSoft}
+    border-2
+    ${isActive ? theme.accentBorder : "border-black/30 hover:border-black/50"}
+  `}
                 >
                   <div className="aspect-video w-full">
                     <img
                       src={thumbSrc}
                       alt={m.alt || m.caption || (isVideo ? "Video" : "Image")}
-                      className="h-full w-full object-cover"
+                      className={`h-full w-full object-cover transition-opacity ${isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
+                        }`}
                     />
+
                   </div>
 
                   {isVideo && (
@@ -330,11 +306,38 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
                     </span>
                   )}
                 </button>
+
+
               );
             })}
           </div>
         </div>
       )}
+
+      {/* LINKS ROW BELOW MEDIA */}
+      {(links?.length || singleLink) && (
+        <div className="flex flex-wrap gap-2 mt-2">
+          {links?.map((lnk: ProjectLink, i: number) => (
+            <a
+              key={i}
+              href={lnk.href}
+              className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
+            >
+              {lnk.label}
+            </a>
+          ))}
+
+          {!links?.length && singleLink && (
+            <a
+              href={singleLink}
+              className={`${theme.primaryButton} ${theme.radiusSoft} px-3 py-1 text-sm`}
+            >
+              {t.viewLink}
+            </a>
+          )}
+        </div>
+      )}
+
     </article>
   );
 }
