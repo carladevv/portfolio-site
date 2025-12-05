@@ -1,5 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { useTheme } from "../ThemeContext";
+import { Image as ImageIcon, PlayCircle } from "lucide-react";
+
+
 
 /* -------------------------------------------------
    TYPES
@@ -128,6 +131,7 @@ function buildMetaLine(
 export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
   const { theme } = useTheme();
 
+
   // Pick content for current lang (fallback to en / first)
   const contentForLang =
     item.content?.[lang] ??
@@ -149,6 +153,8 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
   // ---- MEDIA & CAPTION HANDLING ----
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+
 
   // Merge i18n alt/caption into each media item for the current language
   const media = useMemo(() => {
@@ -205,53 +211,78 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
         </div>
       </div>
 
-      {/* HERO IMAGE / VIDEO (NO LIGHTBOX) */}
-      {hero && (
-        <div className="relative overflow-hidden group">
-          <div
-            className={`aspect-video w-full overflow-hidden ${theme.radiusSoft}`}
+      {/* HERO IMAGE OR PLACEHOLDER */}
+{media.length > 0 ? (
+  <div className="relative overflow-hidden group">
+    <div className={`aspect-video w-full overflow-hidden ${theme.radiusSoft}`}>
+      {isHeroVideo && hero.youtubeId ? (
+        isPlaying ? (
+          // ▶ ACTUAL YOUTUBE PLAYER
+          <iframe
+            src={`https://www.youtube.com/embed/${hero.youtubeId}?autoplay=1`}
+            title={hero.alt || hero.caption || title || "Video"}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="h-full w-full"
+          />
+        ) : (
+          // ▶ THUMBNAIL + CLICK TO PLAY
+          <button
+            type="button"
+            onClick={() => setIsPlaying(true)}
+            className="relative h-full w-full"
+            aria-label={`Play video: ${title}`}
           >
-            {isHeroVideo ? (
-              <img
-                src={
-                  hero.thumb ||
-                  (hero.youtubeId
-                    ? `https://img.youtube.com/vi/${hero.youtubeId}/hqdefault.jpg`
-                    : "")
-                }
-                alt={hero.alt || hero.caption || "Video"}
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <img
-                src={hero.src}
-                alt={hero.alt || hero.caption || "Image"}
-                className="h-full w-full object-cover"
-              />
-            )}
-          </div>
-
-
-
-          {/* CAPTION (bottom, full-width, black semi-transparent) */}
-          {hero.caption && (
-            <div className="absolute inset-x-0 bottom-0 w-full bg-black/80 px-2 py-1 text-[0.85em] text-white">
-              {hero.caption}
-            </div>
-          )}
-
-
-
-          {/* Optional: play badge for video hero (purely visual now) */}
-          {isHeroVideo && (
-            <div className="pointer-events-none absolute inset-0 grid place-items-center text-white/95">
+            <img
+              src={
+                hero.thumb ||
+                (hero.youtubeId
+                  ? `https://img.youtube.com/vi/${hero.youtubeId}/hqdefault.jpg`
+                  : "")
+              }
+              alt={hero.alt || hero.caption || "Video"}
+              className="h-full w-full object-cover"
+            />
+            <span className="pointer-events-none absolute inset-0 grid place-items-center text-white/95">
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black/60">
                 ▶
               </span>
-            </div>
-          )}
-        </div>
+            </span>
+          </button>
+        )
+      ) : (
+        // ▶ Normal image hero
+        <img
+          src={hero.src}
+          alt={hero.alt || hero.caption || "Image"}
+          className="h-full w-full object-cover"
+        />
       )}
+    </div>
+
+    {/* CAPTION */}
+    {hero.caption && (
+      <div className="absolute inset-x-0 bottom-0 w-full bg-black/80 px-2 py-1 text-[0.85em] text-white">
+        {hero.caption}
+      </div>
+    )}
+  </div>
+) : (
+  /* PLACEHOLDER */
+  <div
+    className={`
+      aspect-video w-full ${theme.radiusSoft}
+      flex flex-col items-center justify-center
+      border-2 border-dashed border-gray-400/40
+      text-gray-400
+    `}
+  >
+    <ImageIcon className="w-10 h-10 mb-2 text-gray-400" />
+    <span className="text-[0.9em]">Coming soon!</span>
+  </div>
+)}
+
+
 
       {/* THUMBNAILS (CLICK TO SWAP HERO, NO LIGHTBOX) */}
       {media.length > 1 && (
@@ -279,7 +310,7 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
                 <button
                   key={idx}
                   type="button"
-                  onClick={() => setActiveIndex(idx)}
+                  onClick={() => {setActiveIndex(idx);setIsPlaying(m.type === "youtube" && !!m.youtubeId);}}
                   aria-label={`Show media ${idx + 1} for ${title}`}
                   aria-pressed={isActive}
                   className={`
@@ -300,8 +331,8 @@ export default function ProjectCard({ item, lang, t }: ProjectCardProps) {
 
                   {isVideo && (
                     <span className="pointer-events-none absolute inset-0 grid place-items-center">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/60">
-                        ▶
+                      <span className="inline-flex h-8 w-8 items-center justify-center">
+                         <PlayCircle className="w-8 h-8 text-white/60 drop-shadow" />
                       </span>
                     </span>
                   )}
