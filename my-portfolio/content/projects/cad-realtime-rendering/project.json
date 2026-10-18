@@ -1,0 +1,32 @@
+{
+  "id": "p14",
+  "slug": "cad-realtime-rendering",
+  "tags": [
+    "graphics",
+    "tooling"
+  ],
+  "tech": [
+    "Blender",
+    "Onshape"
+  ],
+  "startDate": "2023-01-01",
+  "priority": "mid",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "REALTIME RENDERING PIPELINE FOR CAD MODELS",
+      "description": "A pipeline I developed for my team to solve the recurring problem of working with CAD files on web / realtime rendering.",
+      "role": "Technical Artist",
+      "client": "at REM Experience",
+      "links": []
+    },
+    "es": {
+      "title": "PIPELINE DE RENDERIZADO A TIEMPO REAL PARA MODELOS CAD",
+      "description": "Una pipeline que desarrollé para mi equipo para resolver el problema recurrente de trabajar con ficheros CAD en aplicaciones web / de renderizado a tiempo real.",
+      "role": "Artista técnica",
+      "client": "en REM Experience",
+      "links": []
+    }
+  },
+  "media": []
+}

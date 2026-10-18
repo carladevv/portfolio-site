@@ -1,0 +1,97 @@
+{
+  "id": "p16",
+  "slug": "archaeological-virtual-tour",
+  "tags": [
+    "graphics",
+    "archaeology",
+    "science"
+  ],
+  "tech": [
+    "React",
+    "Three.js / R3F",
+    "WebGL"
+  ],
+  "startDate": "2025-02-01",
+  "priority": "high",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "ARCHAEOLOGICAL VIRTUAL TOUR",
+      "description": "Gamified virtual tour prototype for an archaeological site in Barcelona, created in collaboration with the SERP/GRQ research group at the University of Barcelona.",
+      "role": "Web Developer",
+      "client": "for Quaternari Research Group",
+      "links": []
+    },
+    "es": {
+      "title": "TOUR VIRTUAL DE ARQUEOLOGÍA",
+      "description": "Prototipo de tour virtual gamificado de un yacimiento arqueológico en Barcelona, creado en colaboración con el grupo de investigación SERP/GRQ de la Universidad de Barcelona.",
+      "role": "Desarrolladora web",
+      "client": "para el Group de la Recerca del Quaternari",
+      "links": []
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "CovaBonica",
+          "caption": "Screenshot from the working prototype."
+        },
+        "es": {
+          "alt": "CovaBonica",
+          "caption": "Captura de pantalla del prototipo."
+        }
+      },
+      "asset": "assets/originals/1fc2b2cf909ba68a49935eeb3c449e13aae54d7d289d8ef2daca43dda5e75bee.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "CovaBonica",
+          "caption": "Screenshot from the working prototype."
+        },
+        "es": {
+          "alt": "CovaBonica",
+          "caption": "Captura de pantalla del prototipo."
+        }
+      },
+      "asset": "assets/originals/0221da9385c00bf8f991c25e19ca35deb38aaefc7282f213a58ba53ba02a6e50.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "CovaBonica",
+          "caption": "Screenshot from the working prototype."
+        },
+        "es": {
+          "alt": "CovaBonica",
+          "caption": "Captura de pantalla del prototipo."
+        }
+      },
+      "asset": "assets/originals/072424e0fe011c8384537b84cef714ef140fd36dd1239fa1235a3f301bb36910.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "CovaBonica",
+          "caption": "Screenshot from the working prototype."
+        },
+        "es": {
+          "alt": "CovaBonica",
+          "caption": "Captura de pantalla del prototipo."
+        }
+      },
+      "asset": "assets/originals/4493ba71733a646047083a98715837ce70802ba796352bf6bf0bd3dd70ac869c.png"
+    },
+    {
+      "type": "youtube",
+      "youtubeId": "uAaGhYLF5A8",
+      "i18n": {},
+      "asset": "assets/originals/60b37cbcfeb89128894342b02c274b38c54608f01668c7a563b42510fec436c0.jpg"
+    }
+  ]
+}

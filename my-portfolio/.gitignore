@@ -12,6 +12,16 @@ dist
 dist-ssr
 *.local
 
+# Raw migration snapshots can include unpublished records. Never deploy them.
+.migration/
+build/
+.react-router/
+src/generated/
+static/media/
+static/favicon.ico
+test-results/
+playwright-report/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

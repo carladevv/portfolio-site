@@ -1,0 +1,91 @@
+{
+  "id": "p3",
+  "slug": "sentence-stepper",
+  "tags": [
+    "accessibility"
+  ],
+  "tech": [
+    "JavaScript"
+  ],
+  "startDate": "2025-09-01",
+  "priority": "high",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "SENTENCE STEPPER",
+      "description": "Free browser extension for Chrome and Firefox designed to enhance focus and accessibility while reading online. 2k+ active users worldwide.",
+      "role": "Web Developer",
+      "client": "(solo project)",
+      "links": [
+        {
+          "href": "https://chromewebstore.google.com/detail/sentence-stepper/cfiappnihemjkaaepefjfofagcobikek?hl=en&authuser=0",
+          "label": "Chrome Web Store"
+        },
+        {
+          "href": "https://addons.mozilla.org/en-US/firefox/addon/sentence-stepper/",
+          "label": "Firefox Add-ons"
+        }
+      ]
+    },
+    "es": {
+      "title": "SENTENCE STEPPER",
+      "description": "Extensión gratuita para Chrome y Firefox pensada para mejorar la concentración y la accesibilidad al leer en la web. Más de 2mil usuarios activos.",
+      "role": "Desarrolladora web",
+      "client": "(proyecto propio)",
+      "links": [
+        {
+          "href": "https://chromewebstore.google.com/detail/sentence-stepper/cfiappnihemjkaaepefjfofagcobikek?hl=en&authuser=0",
+          "label": "Chrome Web Store"
+        },
+        {
+          "href": "https://www.linkedin.com/…",
+          "label": "Complementos de Firefox"
+        }
+      ]
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "SentenceStepper",
+          "caption": "The Sentence-Stepper addon highlights the sentence you're currently reading and dims the rest, helping you focus. Different highlight styles target different needs."
+        },
+        "es": {
+          "alt": "SentenceStepper",
+          "caption": ""
+        }
+      },
+      "asset": "assets/originals/dc16adc8434ba658e0a9162e667dc352db91929f3d3ab58351b55cfd22e53170.gif"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "SentenceStepper",
+          "caption": "After carefully evaluating the feedback from my users, I added a customization menu to the addon to fit everyone's diverse needs."
+        },
+        "es": {
+          "alt": "SentenceStepper",
+          "caption": "Tras evaluar cuidadosamente el feedback de mis usuarios, añadí un panel de personalización al addon para que cada usuario pudiera ajustarlo en función de sus necesidades."
+        }
+      },
+      "asset": "assets/originals/9e372aecd2802f86102a2fbe17f46417d862534b92956b60d7c5fd8234463e31.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "SentenceStepper",
+          "caption": "The addon received a very warm welcome when I first shared it on social media, with over 30k shares and hundreds of kind thank-you messages from users with dyslexia, TDAH and other disabilities."
+        },
+        "es": {
+          "alt": "SentenceStepper",
+          "caption": "El addon fue muy bien recibido en las redes, donde fue compartido más de 30mil veces con cientos de mensajes de agradecimiento por parte de usuarios con dislexia, TDAH y otras discapacidades cognitivas."
+        }
+      },
+      "asset": "assets/originals/b9f80876f64c9891d354d8122027cb873397285999c0113c5a594c8edf6df77d.png"
+    }
+  ]
+}

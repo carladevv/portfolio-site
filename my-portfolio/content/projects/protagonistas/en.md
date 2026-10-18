@@ -1,0 +1,1 @@
+Web game concept I successfully pitched at REM Experience  in collaboration with Laura Gómez Morgado covering the lives of ten female historical figures across a handful of cultures. I designed some mechanics, optimized environment assets and drew the character sprites for the game.

@@ -1,0 +1,94 @@
+{
+  "id": "p11",
+  "slug": "geniusup",
+  "tags": [
+    "science"
+  ],
+  "tech": [
+    "Blender",
+    "Unity3D",
+    "C#",
+    "Shader Graph"
+  ],
+  "startDate": "2023-01-01",
+  "priority": "low",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "GeniusUP",
+      "description": "Multiplayer AR mobile game for testing high school students' knowledge of chemistry that I worked on at REM Experience in collaboration with the University of the Balearic Islands. I was in charge of the AR integration and the VFX for the game.",
+      "role": "Game Developer",
+      "client": "at REM Experience",
+      "links": [
+        {
+          "href": "https://geniusup.uib.es/",
+          "label": "Project Site"
+        },
+        {
+          "href": "https://www.instagram.com/geniusup_/",
+          "label": "Instagram Page"
+        }
+      ]
+    },
+    "es": {
+      "title": "GeniusUP",
+      "description": "Juego multijugador con Realidad Aumentada sobre Química para dispositivos móviles en el que trabajé en REM Experience en colaboración con la Universidad de las Islas Baleares. Me engargué de la integración de elementos de RA y de los efectos visuales 3D del juego.",
+      "role": "Desarrolladora de videojuegos y artista técnica",
+      "client": "en REM Experience",
+      "links": [
+        {
+          "href": "https://geniusup.uib.es/",
+          "label": "Sitio web del proyecto"
+        },
+        {
+          "href": "https://www.instagram.com/geniusup_/",
+          "label": "Perfil de Instagram"
+        }
+      ]
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "GeniusUp",
+          "caption": "The start menu of the GeniusUp AR mobile game."
+        },
+        "es": {
+          "alt": "GeniusUp",
+          "caption": "El menú de inicio del juego para móviles de realidad aumentada GeniusUp."
+        }
+      },
+      "asset": "assets/originals/df84af2ca9a61353aecf7d095a20c3052eebf04358daedbe27fda8e31e9d5ff7.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "GeniusUp",
+          "caption": "Promotional image for the physical cards version of the game."
+        },
+        "es": {
+          "alt": "GeniusUp",
+          "caption": "Imagen promocional para la versión de cartas físicas del juego."
+        }
+      },
+      "asset": "assets/originals/922b897172a46b0f1d7a14b7e2a4db6b0d03dda739a063ce50809458518b59a7.jpg"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "GeniusUp",
+          "caption": "The AR 'magic dice' used in the game."
+        },
+        "es": {
+          "alt": "GeniusUp",
+          "caption": "El 'dado mágico' de realidad aumentada utilizado en el juego."
+        }
+      },
+      "asset": "assets/originals/62081332afc5a2021286a7386e3ddccc0f371b15169bc169ad09ba11b9e32c08.png"
+    }
+  ]
+}

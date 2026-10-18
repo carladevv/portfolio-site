@@ -1,0 +1,1 @@
+Multiplayer AR mobile game for testing high school students' knowledge of chemistry that I worked on at REM Experience in collaboration with the University of the Balearic Islands. I was in charge of the AR integration and the VFX for the game.

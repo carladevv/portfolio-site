@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "content:export": "node scripts/export-sheets.mjs",
+    "content:import": "node scripts/import-content.mjs",
+    "content:verify-import": "node scripts/verify-import.mjs",
+    "content:validate": "node scripts/validate-content.mjs",
+    "assets:collect": "node scripts/collect-assets.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.554.0",

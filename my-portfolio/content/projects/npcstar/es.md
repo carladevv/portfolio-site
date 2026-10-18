@@ -1,0 +1,1 @@
+Librería de typescript para manejar NPCs que te permite crear un mundo vivo para tu juego web al estilo de Animal Crossing a través de plantillas de diálogo, un sistema de relaciones interpersonales y stats sociales.

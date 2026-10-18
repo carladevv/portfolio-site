@@ -1,0 +1,1 @@
+Juego para móviles con Realidad Aumentada que enseña sobre la vida diaria del pueblo íbero, los habitantes originarios de las costas este y sur de la península ibérica. Creé varios modelos 3D para este juego, así como shaders personalizados.

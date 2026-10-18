@@ -1,0 +1,31 @@
+{
+  "id": "p9",
+  "slug": "serp-grq-research-group",
+  "tags": [
+    "archaeology",
+    "science"
+  ],
+  "tech": [
+    "React"
+  ],
+  "startDate": "2025-11-01",
+  "priority": "high",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "SERP/GRQ RESEARCH GROUP SITE",
+      "description": "Under construction site for the SERP/GRQ research group at University of Barcelona, showcasing the group's work on a number of digging sites across the province of Catalonia, Spain.",
+      "role": "Web Developer",
+      "client": "for Quaternari Research Group",
+      "links": []
+    },
+    "es": {
+      "title": "SITIO WEB GRUPO DE INVESTIGACIÓN SERP/GRQ",
+      "description": "Sitio web en construcciónp para el grupo de investigación SERP/GRQ de la Universidad de Barcelona, donde se muestra el trabajo del grupo de investigación en varias excavaciones en la provincia de Cataluña. ",
+      "role": "Desarrolladora web",
+      "client": "para el Group de la Recerca del Quaternari",
+      "links": []
+    }
+  },
+  "media": []
+}

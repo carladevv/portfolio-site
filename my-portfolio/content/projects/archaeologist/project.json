@@ -1,0 +1,90 @@
+{
+  "id": "p13",
+  "slug": "archaeologist",
+  "tags": [
+    "archaeology"
+  ],
+  "tech": [
+    "Blender",
+    "Adobe Substance Painter",
+    "Unity3D",
+    "Shader Graph"
+  ],
+  "startDate": "2022-01-01",
+  "priority": "low",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "ARCHAEOLOGIST",
+      "description": "Web game by REM Experience that teaches high school students about the scientific methodology employed in Archaeological digs. I worked on environment, prop and lighting assets. ",
+      "role": "2D/3D Artist",
+      "client": "at REM Experience",
+      "links": []
+    },
+    "es": {
+      "title": "ARCHAEOLOGIST",
+      "description": "Videojuego web de REM Experience que enseña a los estudiantes de instituto sobre los métodos científicos empleados en las excavaciones arqueológicas. Colaboré en el juego creando escenarios, props e iluminación para los entornos 3D.",
+      "role": "Artista 2D/3D",
+      "client": "en REM Experience",
+      "links": []
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archaeologist",
+          "caption": "One of the many environments I created for the game."
+        },
+        "es": {
+          "alt": "Archaeologist",
+          "caption": "Uno de los entornos 3D que cree para el juego."
+        }
+      },
+      "asset": "assets/originals/3a63456e4446daae619ae7ebeb7ae481c850d29c183f8df9bc5855498c10c357.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archaeologist",
+          "caption": "Some of the many prop assets I created for the game."
+        },
+        "es": {
+          "alt": "Archaeologist",
+          "caption": "Algunos de los modelos 3D que creé para el juego."
+        }
+      },
+      "asset": "assets/originals/542a2443915952ee39cecde6f071f8b3d0e9a8c7bebf2a38ad15ea832d3d092a.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archaeologist",
+          "caption": "The digging stage of the game."
+        },
+        "es": {
+          "alt": "Archaeologist",
+          "caption": "El nivel de excavación del juego."
+        }
+      },
+      "asset": "assets/originals/1498f9b6d56b40b383a791a04f199456553420ee0aeefa211fe31d4ddfde2f04.avif"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archaeologist",
+          "caption": "The lab stage of the game."
+        },
+        "es": {
+          "alt": "Archaeologist",
+          "caption": "El nivel de laboratorio del juego."
+        }
+      },
+      "asset": "assets/originals/398e30437a097774057509e216f0b624b161215be84ef6c86828e01feff9404c.png"
+    }
+  ]
+}

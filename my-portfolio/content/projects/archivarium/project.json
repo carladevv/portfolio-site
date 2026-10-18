@@ -1,0 +1,120 @@
+{
+  "id": "p1",
+  "slug": "archivarium",
+  "tags": [
+    "graphics",
+    "archaeology"
+  ],
+  "tech": [
+    "React",
+    "Three.js / R3F",
+    "WebGL"
+  ],
+  "startDate": "2025-03-01",
+  "priority": "high",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "ARCHIVARIUM",
+      "description": "Serverless web application that lets you launch and manage a gamified virtual museum based on any collection of 3D models. ",
+      "role": "Web Developer",
+      "client": "in collaboration with Laura Gómez Morgado",
+      "links": [
+        {
+          "href": "https://museum-generator-userpov.netlify.app/",
+          "label": "Try site"
+        }
+      ]
+    },
+    "es": {
+      "title": "ARCHIVARIUM",
+      "description": "Aplicación web serverless que te permite poner online y gestionar un museo virtual gamificado en base cualquier colección de modelos 3D.",
+      "role": "Desarrolladora web",
+      "client": "en colaboración con Laura Gómez Morgado",
+      "links": [
+        {
+          "href": "https://museum-generator-userpov.netlify.app/",
+          "label": "Probar sitio web"
+        }
+      ]
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archivarium",
+          "caption": "Auto-generated museum based on dynamic user data."
+        },
+        "es": {
+          "alt": "Archivarium",
+          "caption": "Auto-generated museum based on dynamic user data."
+        }
+      },
+      "asset": "public/images/mg-01.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archivarium",
+          "caption": "Auto-generated museum based on dynamic user data."
+        },
+        "es": {
+          "alt": "Archivarium",
+          "caption": "Auto-generated museum based on dynamic user data."
+        }
+      },
+      "asset": "public/images/mg-02.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archivarium",
+          "caption": "Auto-generated museum based on dynamic user data."
+        },
+        "es": {
+          "alt": "Archivarium",
+          "caption": "Auto-generated museum based on dynamic user data."
+        }
+      },
+      "asset": "public/images/mg-03.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archivarium",
+          "caption": "To mock the backend API response, a spreadsheet is used during development to load the museum data."
+        },
+        "es": {
+          "alt": "Archivarium",
+          "caption": "To mock the backend API response, a spreadsheet is used during development to load the museum data."
+        }
+      },
+      "asset": "public/images/mg-04.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Archivarium",
+          "caption": "Generated layour for a museum consisting of 3 rooms."
+        },
+        "es": {
+          "alt": "Archivarium",
+          "caption": "Generated layour for a museum consisting of 3 rooms."
+        }
+      },
+      "asset": "public/images/mg-05.png"
+    },
+    {
+      "type": "youtube",
+      "youtubeId": "moJk1dbnOcQ",
+      "i18n": {},
+      "asset": "assets/originals/b0ddd543a48adcf86eb5f58bd17dbe5e74828be709466298e449739f84370653.jpg"
+    }
+  ]
+}

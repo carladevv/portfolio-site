@@ -1,0 +1,30 @@
+{
+  "id": "p7",
+  "slug": "npcstar",
+  "tags": [
+    "tooling"
+  ],
+  "tech": [
+    "Typescript"
+  ],
+  "startDate": "2025-10-01",
+  "priority": "low",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "NPCstar",
+      "description": "Typescript library for handling NPCs that lets you create a living world for your web game in the style of Animal Crossing through dialogue templates, a relationships system and social stats.",
+      "role": "Web developer",
+      "client": "(solo project)",
+      "links": []
+    },
+    "es": {
+      "title": "NPCstar",
+      "description": "Librería de typescript para manejar NPCs que te permite crear un mundo vivo para tu juego web al estilo de Animal Crossing a través de plantillas de diálogo, un sistema de relaciones interpersonales y stats sociales.",
+      "role": "Desarrolladora web",
+      "client": "(proyecto propio)",
+      "links": []
+    }
+  },
+  "media": []
+}

@@ -1,0 +1,1 @@
+Esta pipeline que involucra Blender, React y Three.js/R3F aspira a traer entornos 3D de muy alta definición a la web a un coste muy bajo de memoria, evitando la necesidad de usar los pesados ficheros .ktx2.

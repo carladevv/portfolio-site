@@ -1,0 +1,63 @@
+{
+  "id": "p8",
+  "slug": "threejs-environment-lods",
+  "tags": [
+    "tooling",
+    "graphics"
+  ],
+  "tech": [
+    "React",
+    "Three.js/R3F",
+    "WebGL",
+    "Blender Python API"
+  ],
+  "startDate": "2025-11-01",
+  "priority": "mid",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "3D ENVIRONMENT LODs SYSTEM FOR THREE.JS",
+      "description": "This pipeline involving Blender, React and Three.js/R3F aims to bring high quality 3D environment models to the web at a very low memory cost, bypassing the need for large .ktx2 basis texture files.",
+      "role": "Web Developer",
+      "client": "(solo project)",
+      "links": []
+    },
+    "es": {
+      "title": "SISTEMA DE NIVELES DE DETALLE PARA ESCENARIOS 3D EN THREE.JS",
+      "description": "Esta pipeline que involucra Blender, React y Three.js/R3F aspira a traer entornos 3D de muy alta definición a la web a un coste muy bajo de memoria, evitando la necesidad de usar los pesados ficheros .ktx2.",
+      "role": "Desarrolladora web",
+      "client": "(proyecto propio)",
+      "links": []
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "ENVIRONMENT LODs SYSTEM FOR THREE.jS",
+          "caption": "This system renders 4 PBR materials (4K Diffuse, Normal, AO, Roughness) at a fixed 600MB RAM per tab, versus a linear 7GB per tab using standard methods. The app itself is only 48MB."
+        },
+        "es": {
+          "alt": "ENVIRONMENT LODs SYSTEM FOR THREE.jS",
+          "caption": "Este sistema renderiza 4 materiales PBR (Diffuse, Normal, AO, Roughness en 4K) a un costo fijo de 600MB RAM por pestaña, frente a los 7GB por pestaña que requieren los métodos estándar. La aplicación en sí pesa solo 48MB."
+        }
+      },
+      "asset": "assets/originals/63cef53be2bd742996dd66c2390aa6270fc2fec1223cf0040d06f75d60f1b9e4.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "ENVIRONMENT LODs SYSTEM FOR THREE.jS",
+          "caption": "For the environment LODs system to work, the main environment asset must be joined as one mesh and partitioned in blocks. This is done automatically through a Blender script."
+        },
+        "es": {
+          "alt": "ENVIRONMENT LODs SYSTEM FOR THREE.jS",
+          "caption": "El sistema de LODs para entornos necesita que el entorno principal sea particionado en cubos de igual tamaño. Esto se hace automáticamente a través de un script de Blender."
+        }
+      },
+      "asset": "assets/originals/5e34144d93267b3a5ea4b0d56dfc89fab72630aee8ae77fb3e76997da376ca44.jpg"
+    }
+  ]
+}

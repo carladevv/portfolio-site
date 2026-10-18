@@ -1,0 +1,99 @@
+{
+  "id": "p6",
+  "slug": "blender-scripts-tools",
+  "tags": [
+    "graphics",
+    "tooling"
+  ],
+  "tech": [
+    "Python",
+    "Blender Python API"
+  ],
+  "startDate": "2024-01-01",
+  "priority": "high",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "BLENDER SCRIPTS & TOOLS",
+      "description": "Python scripts and add-ons for automating 3D art workflows: batch LOD generation and icon rendering.",
+      "role": "Technical Artist",
+      "client": "(solo project)",
+      "links": [
+        {
+          "href": "#blender-tools",
+          "label": "GitHub Repo"
+        }
+      ]
+    },
+    "es": {
+      "title": "SCRIPTS Y HERRAMIENTAS PARA BLENDER",
+      "description": "Complementos y scripts de Python para automatizar flujos de trabajo de arte 3D: generación por lotes de LOD e iconos renderizados.",
+      "role": "Artista técnica",
+      "client": "(proyecto propio)",
+      "links": [
+        {
+          "href": "#blender-tools",
+          "label": "Repositorio de GitHub"
+        }
+      ]
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Blender tools",
+          "caption": "Blender addon that generates any specified number of LODs from a target 3D model for usage in realtime rendering (Three.js, etc.)"
+        },
+        "es": {
+          "alt": "Blender tools",
+          "caption": "Addon para Blender que genera cualquier número solicitado de LODs en base a un modelo 3D dado para su uso en renderizado a tiempo real (Three.js, etc.)"
+        }
+      },
+      "asset": "assets/originals/efb34ceaafc8250340e5357e034427911b49722a479d776c1cbdbc3dabcd998c.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Blender tools",
+          "caption": "The addon's customization panel lets you fine-tune the image size and decimate ratio of each one of your LODs."
+        },
+        "es": {
+          "alt": "Blender tools",
+          "caption": "El panel de personalización del addon te permite calibrar el tamaño de imagen y nivel de reducción de polígonos de cada nivel de detalle."
+        }
+      },
+      "asset": "assets/originals/1bab682d5c4605738c1e0aff6ab06037d8700839e4a60801b3e4b520892b8afd.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Blender tools",
+          "caption": "Blender script that colors your 3D model according to an input image. Useful for quickly testing different color palettes on a character or environment design."
+        },
+        "es": {
+          "alt": "Blender tools",
+          "caption": "Script para Blender que colorea tu modelo 3D en base a una imagen. Es últil para probar rápidamente varias paletas de colores en un diseño de personaje o environment."
+        }
+      },
+      "asset": "assets/originals/f8de866ed2ec01d911c3e3f6f7cd84ba93c477a31682d66a616783f14a5203d0.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Blender tools",
+          "caption": "Some input/output examples. The biggest challenge was fine-tuning the palette extraction algorithm to really make the end result reflect the image."
+        },
+        "es": {
+          "alt": "Blender tools",
+          "caption": "Ejemplos de input y output. El principal desafío fue calibrar la el algoritmo de extracción de paleta de colores para que el resultado realmente reflejara la imagen."
+        }
+      },
+      "asset": "assets/originals/f266985501d6480e63bcebc56c61b35630373fbff5919e0dc7f52f5d012ebd6b.png"
+    }
+  ]
+}

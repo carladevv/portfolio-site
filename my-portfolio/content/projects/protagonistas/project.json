@@ -1,0 +1,144 @@
+{
+  "id": "p10",
+  "slug": "protagonistas",
+  "tags": [
+    "archaeology"
+  ],
+  "tech": [
+    "Blender",
+    "Adobe Photoshop"
+  ],
+  "startDate": "2023-06-01",
+  "priority": "low",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "PROTAGONISTAS",
+      "description": "Web game concept I successfully pitched at REM Experience  in collaboration with Laura Gómez Morgado covering the lives of ten female historical figures across a handful of cultures. I designed some mechanics, optimized environment assets and drew the character sprites for the game.",
+      "role": "2D/3D Artist",
+      "client": "at REM Experience",
+      "links": []
+    },
+    "es": {
+      "title": "PROTAGONISTAS",
+      "description": "Juego que conceptualicé para REM Experience junto a Laura Gómez Morgado que cubre las vidas de diez personajes históricos femeninos de diferentes culturas. Me encargué de diseñar algunas mecánicas, optimizar los escenarios 3D y dibujar los sprites para los personajes del juego.",
+      "role": "Artista 2D/3D",
+      "client": "en REM Experience",
+      "links": []
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Protagonistas",
+          "caption": "Linework for the sprites of  character 'Hipatia of Alexandria'. The different pieces can be combined to make different expressions."
+        },
+        "es": {
+          "alt": "Protagonistas",
+          "caption": "Líneas para los sprites del personaje 'Hipatia de Alejandría'. Las distintas capas pueden combinarse para crear distintas expresiones."
+        }
+      },
+      "asset": "assets/originals/076d56d27374212f9e6f08af40016c4a46bd1c8bb08531917561e3a48aebe259.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Protagonistas",
+          "caption": "Sketches for all 10 main characters featuring 5 expressions each. I carefully studied the visual references and historical context to create each character design."
+        },
+        "es": {
+          "alt": "Protagonistas",
+          "caption": "Bocetos para los 10 personajes protagonistas, con 5 expresiones cada uno. Estudié cuidadosamente las referencias visuales existentes y el contexto histórico para crear el diseño de cada personaje."
+        }
+      },
+      "asset": "assets/originals/8455bb069409a95a1b57f169a238f7b02ffccce714c1a009ed2ec206ebd9d2df.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Protagonistas",
+          "caption": "Early visual development sketch for the scene exploration screen of the game."
+        },
+        "es": {
+          "alt": "Protagonistas",
+          "caption": "Conceptualización inicial de la fase de exploración del juego."
+        }
+      },
+      "asset": "assets/originals/d2f02b5acc4e3047bbdd92fde809c2cdad58f518527358615efe97fac6b03694.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Protagonistas",
+          "caption": "Early visual development for the character 'Ada Lovelace', who did not make it into the game. Ada Lovelace is generally credited as the first computer programmer. "
+        },
+        "es": {
+          "alt": "Protagonistas",
+          "caption": "Conceptualización inicial del personaje 'Ada Lovelace', que no fue incluida en el juego. Ada Lovelace es considerada la primera programadora de la historia."
+        }
+      },
+      "asset": "assets/originals/3163017ca45ad234dc5cc818eae6f76b152010327511240ad5ca82e1ae5902c6.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Protagonistas",
+          "caption": "Early visual development for the character 'Princess Zhao of Pingyang'. Zhao of Pingyang was a warrior lady who commanded an army during the Tang dynasty."
+        },
+        "es": {
+          "alt": "Protagonistas",
+          "caption": "Conceptualización inicial del personaje 'Princesa Zhao de Pingyang'. Zhao de Pingyang fue una mujer guerrera que lideró un ejército durante la dinastía Tang."
+        }
+      },
+      "asset": "assets/originals/aeed1a3f93db79aaf99d0a23d9d00eac9804aeb2ce99b21607b096c3ba8e7ca1.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Protagonistas",
+          "caption": "Final character sprites for 'Irena Sendler', 'Elena Maseras', 'Jeanne Baret' and 'Harriet Tubman'. "
+        },
+        "es": {
+          "alt": "Protagonistas",
+          "caption": "Sprites finales de los personajes 'Irena Sendler', 'Elena Maseras', 'Jeanne Baret' y 'Harriet Tubman'. "
+        }
+      },
+      "asset": "assets/originals/57c41284fb5df4d9f54f0bb8150d6497626af79ae7bb5f1eb6ffcdce51e6b9fa.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Protagonistas",
+          "caption": "In-game screenshot featuring the scene exploration stage."
+        },
+        "es": {
+          "alt": "Protagonistas",
+          "caption": "Captura de pantalla del juego mostrando la fase de exploración y diálogo del juego."
+        }
+      },
+      "asset": "assets/originals/eaed962b23ef2c8b855c54216a89f485d767460218bf361da1d6f8c5e7fb24a9.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Protagonistas",
+          "caption": "In-game screenshot featuring the puzzle stage."
+        },
+        "es": {
+          "alt": "Protagonistas",
+          "caption": "Captura de pantalla del juego mostrando la fase de puzzles del juego."
+        }
+      },
+      "asset": "assets/originals/d16ee2d121ba338dd0106aa2be007609e43a76e3a8e7dfd6db0d1e10a400f2b0.png"
+    }
+  ]
+}

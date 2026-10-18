@@ -1,0 +1,1 @@
+Videojuego web de REM Experience que enseña a los estudiantes de instituto sobre los métodos científicos empleados en las excavaciones arqueológicas. Colaboré en el juego creando escenarios, props e iluminación para los entornos 3D.

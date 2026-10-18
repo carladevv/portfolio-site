@@ -1,0 +1,56 @@
+{
+  "id": "p2",
+  "slug": "ficweaver",
+  "tags": [
+    "tooling"
+  ],
+  "tech": [
+    "React",
+    "Typescript"
+  ],
+  "startDate": "2025-08-01",
+  "priority": "mid",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "FICWEAVER",
+      "description": "Node-based writing tool for planning linear stories—tags, annotations, and bird’s-eye narrative view.",
+      "role": "Web Developer",
+      "client": "(solo project)",
+      "links": [
+        {
+          "href": "https://squirrelcarla.gumroad.com/l/ficweaver",
+          "label": "Try site"
+        }
+      ]
+    },
+    "es": {
+      "title": "FICWEAVER",
+      "description": "Herramienta de escritura basada en nodos para planificar historias lineales, con etiquetas, anotaciones y una vista global de la narrativa.",
+      "role": "Desarrolladora web",
+      "client": "(proyecto propio)",
+      "links": [
+        {
+          "href": "https://squirrelcarla.gumroad.com/l/ficweaver",
+          "label": "Probar sitio web"
+        }
+      ]
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "FicWeaver",
+          "caption": ""
+        },
+        "es": {
+          "alt": "FicWeaver",
+          "caption": ""
+        }
+      },
+      "asset": "public/images/fw-00.png"
+    }
+  ]
+}

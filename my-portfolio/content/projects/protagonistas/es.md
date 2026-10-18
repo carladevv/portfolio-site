@@ -1,0 +1,1 @@
+Juego que conceptualicé para REM Experience junto a Laura Gómez Morgado que cubre las vidas de diez personajes históricos femeninos de diferentes culturas. Me encargué de diseñar algunas mecánicas, optimizar los escenarios 3D y dibujar los sprites para los personajes del juego.

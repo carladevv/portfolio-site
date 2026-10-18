@@ -1,0 +1,117 @@
+{
+  "id": "p12",
+  "slug": "diber",
+  "tags": [
+    "archaeology"
+  ],
+  "tech": [
+    "Blender",
+    "Adobe Substance Painter",
+    "Shader Graph"
+  ],
+  "startDate": "2023-01-01",
+  "priority": "low",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "DIBER",
+      "description": "AR mobile game that teaches about the everyday lives of the Iberians, the indigenous inhabitants of the eastern and southern coasts of the Iberian Peninsula. I created many 3D models and custom shaders for the game.",
+      "role": "2D/3D Artist",
+      "client": "at REM Experience",
+      "links": []
+    },
+    "es": {
+      "title": "DIBER",
+      "description": "Juego para móviles con Realidad Aumentada que enseña sobre la vida diaria del pueblo íbero, los habitantes originarios de las costas este y sur de la península ibérica. Creé varios modelos 3D para este juego, así como shaders personalizados.",
+      "role": "Artista 2D/3D",
+      "client": "en REM Experience",
+      "links": []
+    }
+  },
+  "media": [
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Diber",
+          "caption": "3D assets depicting a waving loom and other household objects used by the iberian people."
+        },
+        "es": {
+          "alt": "Diber",
+          "caption": "Modelos 3D correspondientes a un telar antiguo y otros objetos cotidianos del pueblo íbero."
+        }
+      },
+      "asset": "assets/originals/bcf07cc3e25baaf8cf4adacc646b308f23b5f6afe191a82dc42d183f60e5f648.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Diber",
+          "caption": "3D assets depicting the door and awning of an iberian house."
+        },
+        "es": {
+          "alt": "Diber",
+          "caption": "Modelos 3D correspondientes a las puertas de entrada y el toldo de una casa ibera."
+        }
+      },
+      "asset": "assets/originals/de3f0333fb632f07d15483d13c07a79e0485dccbcab783e8fd70719a6070ed6a.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Diber",
+          "caption": "3D assets depicting a sword and shield used by iberian soldiers."
+        },
+        "es": {
+          "alt": "Diber",
+          "caption": "Modelos 3D correspondientes a una espada y un escudo utilizados por soldados del pueblo ibero."
+        }
+      },
+      "asset": "assets/originals/7817653f29629ecefa98da73b02632572930c425f4a4b8e86c1ea57f193d1810.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Diber",
+          "caption": "3D assets depicting a quern-stone and some other household objects used by the iberian people."
+        },
+        "es": {
+          "alt": "Diber",
+          "caption": "Modelos 3D correspondientes a una piedra de molino y otros objetos cotidianos del pueblo ibero."
+        }
+      },
+      "asset": "assets/originals/2e7bda6958ff22ef8e7f8385212d72c1f75c76f80931eb96c9dbc4638f95dd75.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Diber",
+          "caption": "In-game screenshot featuring the place item mechanic."
+        },
+        "es": {
+          "alt": "Diber",
+          "caption": "Captura de pantalla del juego demostrando la mecánica de colocar objeto."
+        }
+      },
+      "asset": "assets/originals/e459f6b2abeaa26286101373cea715f7e342409106727b2ffeea3160508ae596.png"
+    },
+    {
+      "type": "image",
+      "i18n": {
+        "en": {
+          "alt": "Diber",
+          "caption": "In-game screenshot depicting the inside of the iberian house."
+        },
+        "es": {
+          "alt": "Diber",
+          "caption": "Captura de pantalla del juego mostrando el interior de la casa ibera."
+        }
+      },
+      "asset": "assets/originals/f30334ee4856451d83c6b8db878634584c74bca348a31add11d377986587b93d.png"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Juego multijugador con Realidad Aumentada sobre Química para dispositivos móviles en el que trabajé en REM Experience en colaboración con la Universidad de las Islas Baleares. Me engargué de la integración de elementos de RA y de los efectos visuales 3D del juego.

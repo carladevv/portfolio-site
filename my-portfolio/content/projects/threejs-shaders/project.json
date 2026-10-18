@@ -1,0 +1,31 @@
+{
+  "id": "p15",
+  "slug": "threejs-shaders",
+  "tags": [
+    "graphics"
+  ],
+  "tech": [
+    "Three.js",
+    "GLSL"
+  ],
+  "startDate": "2025-01-01",
+  "priority": "low",
+  "visibility": "on",
+  "content": {
+    "en": {
+      "title": "THREE.JS SHADERS",
+      "description": "Collection of shaders I've coded for Three.js/WebGL.",
+      "role": "Technical Artist",
+      "client": "at REM Experience",
+      "links": []
+    },
+    "es": {
+      "title": "SHADERS PARA THREE.JS",
+      "description": "Recopilación de shaders que he creado para Three.js/WebGL",
+      "role": "Artista técnica",
+      "client": "en REM Experience",
+      "links": []
+    }
+  },
+  "media": []
+}
