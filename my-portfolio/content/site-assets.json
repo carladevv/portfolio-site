@@ -1,0 +1,10 @@
+{
+  "/pfp.png": "public/pfp.png",
+  "/background/bgpattern.png": "public/background/bgpattern.png",
+  "/background/bgpattern_2.png": "public/background/bgpattern_2.png",
+  "/cat/catwalk_right.gif": "public/cat/catwalk_right.gif",
+  "/cat/catwalk_left.gif": "public/cat/catwalk_left.gif",
+  "/cat/catsit_right.gif": "public/cat/catsit_right.gif",
+  "/cat/catsit_left.gif": "public/cat/catsit_left.gif",
+  "/favicon.ico": "public/favicon.ico"
+}

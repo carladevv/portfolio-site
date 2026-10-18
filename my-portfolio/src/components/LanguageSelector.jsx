@@ -17,6 +17,7 @@ export default function LanguageSelector({ t, lang, setLang, size = "xs" }) {
           <button
             key={code}
             type="button"
+            aria-pressed={lang === code}
             onClick={() => setLang(code)}
             className={
               "px-2 py-1 text-xs " +

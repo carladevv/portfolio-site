@@ -7,6 +7,8 @@
   "recentReadsSubtitle": "---",
   "techStack": "Tecnologías",
   "viewLink": "Ver proyecto",
+  "visitWebsite": "Visitar sitio web",
+  "comingSoon": "Próximamente",
   "moreMedia": "Más multimedia",
   "language": "Idioma",
   "fontSize": "Tamaño de fuente",
@@ -17,7 +19,8 @@
     "tooling": "Herramientas",
     "archaeology": "Arqueología",
     "science": "Ciencia",
-    "bio": "Trayectoria"
+    "all": "Todos los proyectos",
+    "collaborations": "Colaboraciones"
   },
   "links": {
     "trySite": "Probar sitio",
@@ -25,5 +28,21 @@
     "githubRepo": "Repositorio en GitHub",
     "chromeWebStore": "Chrome Web Store",
     "firefoxAddons": "Complementos de Firefox"
-  }
+  },
+  "readMore": "Leer más",
+  "backToProjects": "Volver a los proyectos",
+  "relatedProjects": "Proyecto relacionado",
+  "caseStudyInProgress": "Caso de estudio en preparación: próximamente añadiré más detalles e imágenes.",
+  "translationFallback": "Esta descripción está disponible por ahora en inglés.",
+  "skipToContent": "Saltar al contenido",
+  "navigation": "Navegación del portafolio",
+  "media": "Imagen o vídeo",
+  "showMedia": "Mostrar contenido",
+  "enlarge": "Ampliar imagen",
+  "play": "Reproducir",
+  "stop": "Detener reproducción",
+  "close": "Cerrar",
+  "emptyProjects": "Todavía no hay proyectos en esta categoría.",
+  "notFound": "Página no encontrada",
+  "theme": "Cambiar tema"
 }

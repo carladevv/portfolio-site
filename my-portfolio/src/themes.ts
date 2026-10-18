@@ -66,7 +66,7 @@ export const themes: Record<ThemeId, Theme> = {
         label: "Emerald Dark",
 
         pageBg: "bg-zinc-950",
-        bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
+        bgTexture: "", // The layout uses the optimized local texture manifest.
 
 
         fontBody: "font-sans",
@@ -119,7 +119,7 @@ export const themes: Record<ThemeId, Theme> = {
 
         // Background + base font
         pageBg: "bg-[#E6DCCB]",   // light stone
-        bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
+        bgTexture: "",
 
 
         fontBody: "font-renBody",
@@ -182,7 +182,7 @@ export const themes: Record<ThemeId, Theme> = {
         label: "Techno Rose",
 
         pageBg: "bg-neutral-950",
-        bgTexture: "bg-[url('/background/bgpattern_2.png')]", // NEW
+        bgTexture: "",
 
         fontBody: "font-renroseBody",
         fontHeading: "font-renroseHeading  tracking-[0.1em] ",

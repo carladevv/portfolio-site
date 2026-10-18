@@ -1,0 +1,46 @@
+{
+  "intro": {
+    "en": {
+      "before": "Alongside my ongoing work, I welcome small collaborations in heritage, science, archaeology, and activism. If you have a project that could benefit from my skills, ",
+      "link": "get in touch",
+      "after": "—I'd be happy to explore a contribution that fits around my existing commitments."
+    },
+    "es": {
+      "before": "Además de mi trabajo habitual, me interesan las pequeñas colaboraciones en patrimonio, ciencia, arqueología y activismo. Si tienes un proyecto al que pueda aportar mis conocimientos, ",
+      "link": "ponte en contacto conmigo",
+      "after": ": me encantará explorar una colaboración compatible con mis compromisos actuales."
+    }
+  },
+  "items": [
+    {
+      "id": "caladona",
+      "tech": [],
+      "content": {
+        "en": {
+          "title": "CALADONA",
+          "description": "I updated the content of this Barcelona women's center's existing 360° virtual tour and added functionality to extend the experience."
+        },
+        "es": {
+          "title": "CALADONA",
+          "description": "Actualicé el contenido del recorrido virtual de 360° de este centro de mujeres de Barcelona y añadí funcionalidades para ampliar la experiencia."
+        }
+      }
+    },
+    {
+      "id": "proyecto-tuy",
+      "tech": [],
+      "content": {
+        "en": {
+          "title": "Proyecto TUY",
+          "status": "In development",
+          "description": "I contributed to the visual design of Proyecto TUY, a website sharing information about trans rights in Uruguay. The project is currently under construction."
+        },
+        "es": {
+          "title": "Proyecto TUY",
+          "status": "En desarrollo",
+          "description": "Colaboré en el diseño visual de Proyecto TUY, un sitio web con información sobre los derechos de las personas trans en Uruguay. El proyecto está actualmente en construcción."
+        }
+      }
+    }
+  ]
+}

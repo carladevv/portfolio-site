@@ -1,5 +1,8 @@
 // src/components/BioHeaderMobile.jsx
 import { useTheme } from "../ThemeContext";
+import {Link} from 'react-router';
+import OptimizedImage from './OptimizedImage';
+import siteImages from '../generated/site-images.json';
 import LanguageSelector from "./LanguageSelector";
 import { SiLinkedin, SiGithub, SiYoutube } from "react-icons/si";
 
@@ -19,12 +22,14 @@ export default function BioHeaderMobile({
       {/* toolbar */}
       <div className="flex items-center justify-end gap-4 px-4 pt-3">
         <LanguageSelector t={t} lang={lang} setLang={setLang} />
-        <label className={`flex items-center gap-2 text-xs ${theme.textMuted}`}>
+        <div role="group" aria-label={t.fontSize} className={`flex items-center gap-2 text-xs ${theme.textMuted}`}>
           <span className="opacity-70">{t.fontSize}</span>
           <div className={`flex ${theme.toolbarPill} ${theme.radiusMax}`}>
             {["sm", "base", "lg"].map((s) => (
               <button
                 key={s}
+                type="button"
+                aria-pressed={fontSize === s}
                 onClick={() => setFontSize(s)}
                 className={
                   "px-2 py-1 text-xs " +
@@ -37,28 +42,28 @@ export default function BioHeaderMobile({
               </button>
             ))}
           </div>
-        </label>
+        </div>
       </div>
 
       {/* GRID LAYOUT */}
       <div className="grid grid-cols-[auto_1fr] gap-x-4 px-4 pt-2">
 
         {/* Row 1 — full width title */}
-        <h1
+        <p
           className={`text-2xl font-thin col-span-2 ${
             theme.fontHeading || ""
           } ${theme.headerTextMain}`}
         >
-          {t.name}
-        </h1>
+          <Link to={`/${lang}/`}>{t.name}</Link>
+        </p>
 
         {/* Left column: picture spanning 2 rows, glued to bottom */}
         <div className="row-span-2">
           <div
             className={`w-24 h-24 ${theme.accentBg}`}
           >
-            <img
-              src="/pfp.png"
+            <OptimizedImage
+              image={siteImages['/pfp.png']} sizes="96px" eager
               alt="Profile"
               className="w-24 h-24 object-contain"
               style={{ imageRendering: "pixelated" }}

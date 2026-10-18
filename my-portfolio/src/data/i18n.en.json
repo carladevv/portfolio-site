@@ -7,25 +7,42 @@
   "recentReadsSubtitle": "---",
   "techStack": "Tech stack",
   "viewLink": "View project",
+  "visitWebsite": "Visit website",
+  "comingSoon": "Coming soon",
   "moreMedia": "More media",
   "language": "Language",
   "fontSize": "Font size",
   "footerNote": "Portfolio source on GitHub",
-
-    "sections": {
+  "sections": {
     "graphics": "Graphics",
     "accessibility": "Accessibility",
     "tooling": "Tooling",
     "archaeology": "Archaeology",
     "science": "Science",
-    "bio": "Journey"
+    "all": "All projects",
+    "collaborations": "Collaborations"
   },
-
-   "links": {
+  "links": {
     "trySite": "Try site",
     "readArticle": "Read article",
     "githubRepo": "Github repo",
     "chromeWebStore": "Chrome Web Store",
     "firefoxAddons": "Firefox Add-ons"
-  }
+  },
+  "readMore": "Read more",
+  "backToProjects": "Back to projects",
+  "relatedProjects": "Related project",
+  "caseStudyInProgress": "Case study in progress — more detail and images to come.",
+  "translationFallback": "This description is currently available in English.",
+  "skipToContent": "Skip to content",
+  "navigation": "Portfolio navigation",
+  "media": "Media",
+  "showMedia": "Show media",
+  "enlarge": "Enlarge image",
+  "play": "Play",
+  "stop": "Stop playback",
+  "close": "Close",
+  "emptyProjects": "No projects in this category yet.",
+  "notFound": "Page not found",
+  "theme": "Change theme"
 }

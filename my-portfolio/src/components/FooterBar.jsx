@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Cat, Plus } from "lucide-react";
 import { useTheme } from "../ThemeContext";
+import siteImages from '../generated/site-images.json';
 
 const BOX_SIZE = 32; // px (sprite width)
 const TICK_MS = 80; // animation tick
@@ -140,7 +141,7 @@ useEffect(() => {
     return (
       <div
         ref={containerRef}
-        className="pointer-events-none absolute bottom-full left-0 right-0 flex h-8 items-center gap-2"
+      className="cat-lane pointer-events-none absolute bottom-full left-0 right-0 flex h-8 items-center gap-2"
       />
     );
   }
@@ -148,7 +149,7 @@ useEffect(() => {
   return (
     <div
       ref={containerRef}
-      className="pointer-events-none absolute bottom-full left-0 right-0 flex h-8 items-center gap-2"
+      className="cat-lane pointer-events-none absolute bottom-full left-0 right-0 flex h-8 items-center gap-2"
     >
       <div className="relative h-8 w-full">
         {cats.map((cat) => {
@@ -171,9 +172,9 @@ useEffect(() => {
           return (
             <img
               key={id}
-              src={sprite}
-              alt="Toolbar cat"
-              className="absolute top-0 h-8 select-none pointer-events-none"
+              src={siteImages[sprite].src}
+              width={siteImages[sprite].width} height={siteImages[sprite].height} alt=""
+              className="absolute top-0 h-8 w-auto select-none pointer-events-none"
               style={{
                 // X movement + slight Y push down to remove the visible gap
                 transform: `translateX(${x}px) translateY(-1px)`,
@@ -261,7 +262,7 @@ export default function FooterBar({ t }) {
 
           {/* Right side: GitHub / footer note */}
           <a
-            href="https://github.com/youruser/your-portfolio"
+            href="https://github.com/CarlaCGDM/portfolio-site"
             className={`place-self-end px-2 py-1 ${theme.footerButton} ${theme.radiusSoft}`}
           >
             {t.footerNote}

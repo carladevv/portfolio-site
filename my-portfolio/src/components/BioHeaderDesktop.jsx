@@ -1,5 +1,8 @@
 // src/components/BioHeaderDesktop.jsx
 import { useTheme } from "../ThemeContext";
+import { Link, useLocation } from 'react-router';
+import OptimizedImage from './OptimizedImage';
+import siteImages from '../generated/site-images.json';
 
 // react icons
 import { SiLinkedin, SiGithub, SiYoutube } from "react-icons/si";
@@ -7,6 +10,7 @@ import { SiLinkedin, SiGithub, SiYoutube } from "react-icons/si";
 
 export default function BioHeaderDesktop({ t }) {
   const { theme } = useTheme();
+  const lang=useLocation().pathname.startsWith('/es')?'es':'en';
 
   return (
     <div className={`w-full ${theme.headerStrip}`}>
@@ -16,8 +20,8 @@ export default function BioHeaderDesktop({ t }) {
         <div
           className={`h-256 w-256 flex items-center justify-center overflow-hidden ${theme.accentBg} `}
         >
-          <img
-            src="/pfp.png"
+          <OptimizedImage
+            image={siteImages['/pfp.png']} sizes="128px" eager
             alt="Profile"
             className="w-32 h-32 object-contain"
             style={{ imageRendering: "pixelated" }}
@@ -26,13 +30,13 @@ export default function BioHeaderDesktop({ t }) {
 
         {/* Text block */}
         <div className="flex flex-col justify-center">
-          <h1
+          <p
             className={`text-3xl font-thin uppercase ${
               theme.fontHeading || ""
             } ${theme.headerTextMain}`}
           >
-            {t.name}
-          </h1>
+            <Link to={`/${lang}/`}>{t.name}</Link>
+          </p>
 
           <p className={`mt-2 text-base uppercase ${theme.headerTextMuted}`}>
             {t.tagline}

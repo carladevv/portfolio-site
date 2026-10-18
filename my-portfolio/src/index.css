@@ -10,3 +10,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Slim accent scrollbars for the page, thumbnail strips, and other overflow. */
+@media (forced-colors: none) {
+  :root {
+    --scrollbar-thumb: #c7849c;
+    --scrollbar-thumb-hover: #dda0b6;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+  /* Chromium/Safari expose thumb rounding and allow the arrow buttons to be hidden. */
+  @supports selector(::-webkit-scrollbar) {
+    * { scrollbar-width: auto; scrollbar-color: auto; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb);
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+    ::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+    ::-webkit-scrollbar-corner { background: transparent; }
+  }
+}
+
+:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; background: #fff; color: #111; padding: .75rem 1rem; }
+.skip-link:focus { top: 1rem; }
+.project-title:hover { text-decoration: underline; text-underline-offset: .25em; }
+.collaboration-tab, .collaboration-card { border-color: #79658c; }
+.collaboration-tab { color: #c6b5d8; }
+.collaboration-tab:hover, .collaboration-tab[aria-current] { background: #33273f; }
+.collaboration-tab[aria-current] { text-decoration: underline; text-underline-offset: .3em; }
+.collaboration-link { color: #c6b5d8; }
+[data-theme="renaissanceStone"] .collaboration-tab, [data-theme="renaissanceStone"] .collaboration-link { color: #604077; }
+[data-theme="renaissanceStone"] .collaboration-tab:hover, [data-theme="renaissanceStone"] .collaboration-tab[aria-current] { background: #ddd0e5; }
+.project-prose { line-height: 1.85; }
+.project-prose p, .project-prose ul, .project-prose ol, .project-prose blockquote { margin: 1.1em 0; }
+.project-prose h2 { font-size: 1.55em; margin-top: 1.8em; margin-bottom: .7em; line-height: 1.3; }
+.project-prose h3 { font-size: 1.25em; margin-top: 1.5em; }
+.project-prose ul { list-style: disc; padding-left: 1.5em; }
+.project-prose ol { list-style: decimal; padding-left: 1.5em; }
+.project-prose a { text-decoration: underline; text-underline-offset: .2em; }
+.project-prose blockquote { border-left: 2px solid currentColor; padding-left: 1em; }
+.project-prose pre { overflow: auto; padding: 1em; background: #0002; border-radius: .4em; }
+.project-prose code { font-size: .9em; }
+.media-dialog { width: min(96vw,1400px); max-width: none; max-height: 96vh; padding: 0; background: transparent; }
+.media-dialog::backdrop { background: #000d; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .cat-lane { display: none; }
+}
