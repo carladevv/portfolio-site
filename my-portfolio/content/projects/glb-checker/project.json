@@ -1,0 +1,8 @@
+{
+  "id": "glb-checker", "slug": "glb-checker", "visibility": "on", "priority": "high", "status": "stub",
+  "tags": ["tooling"], "tech": [], "media": [], "related": ["navarra-historical-sites"],
+  "content": {
+    "en": {"title": "GLB Checker", "description": "A tool that diagnoses issues in GLB files and produces an actionable report. I built it after Proyecto Navarra to help teams identify and address asset problems before handing models over for integration.", "role": "Tool development", "client": "", "links": []},
+    "es": {"title": "GLB Checker", "description": "Una herramienta que diagnostica problemas en archivos GLB y genera un informe con indicaciones para resolverlos. La desarrollé después de Proyecto Navarra para ayudar a los equipos a detectar y corregir problemas antes de entregar los modelos para su integración.", "role": "Desarrollo de herramientas", "client": "", "links": []}
+  }
+}

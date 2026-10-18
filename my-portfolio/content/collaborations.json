@@ -13,33 +13,24 @@
   },
   "items": [
     {
-      "id": "caladona",
-      "tech": [],
+      "id": "grq", "tech": ["React"], "url": "https://grq.cat/",
       "content": {
-        "en": {
-          "title": "CALADONA",
-          "description": "I updated the content of this Barcelona women's center's existing 360° virtual tour and added functionality to extend the experience."
-        },
-        "es": {
-          "title": "CALADONA",
-          "description": "Actualicé el contenido del recorrido virtual de 360° de este centro de mujeres de Barcelona y añadí funcionalidades para ampliar la experiencia."
-        }
+        "en": {"title": "Grup de Recerca del Quaternari (GRQ–SERP)", "description": "I have a longstanding collaboration with the University of Barcelona's Quaternary Research Group, contributing web development to share its archaeological research with the public. This includes the group's website, showcasing its research and excavation sites in Catalonia."},
+        "es": {"title": "Grup de Recerca del Quaternari (GRQ–SERP)", "description": "Mantengo una colaboración de larga trayectoria con el Grup de Recerca del Quaternari de la Universitat de Barcelona, aportando desarrollo web para acercar su investigación arqueológica al público. Entre estas contribuciones está el sitio web del grupo, que presenta sus investigaciones y yacimientos en Cataluña."}
       }
     },
     {
-      "id": "proyecto-tuy",
-      "tech": [],
+      "id": "caladona", "tech": [], "url": "https://visitavirtual.caladona.org/",
       "content": {
-        "en": {
-          "title": "Proyecto TUY",
-          "status": "In development",
-          "description": "I contributed to the visual design of Proyecto TUY, a website sharing information about trans rights in Uruguay. The project is currently under construction."
-        },
-        "es": {
-          "title": "Proyecto TUY",
-          "status": "En desarrollo",
-          "description": "Colaboré en el diseño visual de Proyecto TUY, un sitio web con información sobre los derechos de las personas trans en Uruguay. El proyecto está actualmente en construcción."
-        }
+        "en": {"title": "CALADONA", "description": "I updated the content of this Barcelona women's center's existing 360° virtual tour and added functionality to extend the experience."},
+        "es": {"title": "CALADONA", "description": "Actualicé el contenido del recorrido virtual de 360° de este centro de mujeres de Barcelona y añadí funcionalidades para ampliar la experiencia."}
+      }
+    },
+    {
+      "id": "proyecto-tuy", "tech": [],
+      "content": {
+        "en": {"title": "Proyecto TUY", "status": "In development", "description": "I contributed to the visual design of Proyecto TUY, a website sharing information about trans rights in Uruguay. The project is currently under construction."},
+        "es": {"title": "Proyecto TUY", "status": "En desarrollo", "description": "Colaboré en el diseño visual de Proyecto TUY, un sitio web con información sobre los derechos de las personas trans en Uruguay. El proyecto está actualmente en construcción."}
       }
     }
   ]

@@ -11,7 +11,7 @@
   ],
   "startDate": "2023-01-01",
   "priority": "mid",
-  "visibility": "on",
+  "visibility": "off",
   "content": {
     "en": {
       "title": "REALTIME RENDERING PIPELINE FOR CAD MODELS",

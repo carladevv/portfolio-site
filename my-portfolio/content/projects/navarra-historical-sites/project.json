@@ -1,0 +1,117 @@
+{
+  "id": "navarra",
+  "slug": "navarra-historical-sites",
+  "visibility": "on",
+  "priority": "high",
+  "allOrder": 2,
+  "tags": [
+    "archaeology",
+    "graphics",
+    "tooling"
+  ],
+  "tech": [
+    "Blender",
+    "Python",
+    "Blender Python API",
+    "Adobe Photoshop",
+    "Tripo AI"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "asset": "assets/originals/navarra/final-woman-dog-wide.jpeg",
+      "i18n": {
+        "en": {
+          "alt": "Wide view of a reconstructed stone room with a seated woman reading and a dog resting beside her.",
+          "caption": "Woman and dog in the team's reconstructed interior, wide view."
+        },
+        "es": {
+          "alt": "Vista general de una sala de piedra reconstruida, con una mujer sentada leyendo y un perro descansando a su lado.",
+          "caption": "Vista general de la mujer y el perro en el interior reconstruido por el equipo."
+        }
+      }
+    },
+    {
+      "type": "image",
+      "asset": "assets/originals/navarra/final-woman-dog-detail.jpeg",
+      "i18n": {
+        "en": {
+          "alt": "Closer view of the seated woman holding an open book, her dress, and the dog on the rug.",
+          "caption": "Woman and dog, created through reference-led AI generation and manual retouching."
+        },
+        "es": {
+          "alt": "Detalle de la mujer sentada con un libro abierto, su vestido y el perro sobre la alfombra.",
+          "caption": "Detalle de la mujer y el perro, creados mediante generación con IA guiada por referencias y retoque manual."
+        }
+      }
+    },
+    {
+      "type": "image",
+      "asset": "assets/originals/navarra/final-interior-wide.jpeg",
+      "i18n": {
+        "en": {
+          "alt": "Reconstructed interior with a wooden table, pottery, fireplace, and a standing figure beside the door.",
+          "caption": "Figures and props combining AI-assisted creation with manual modeling."
+        },
+        "es": {
+          "alt": "Interior reconstruido con una mesa de madera, cerámica, una chimenea y una figura de pie junto a la puerta.",
+          "caption": "Figuras y objetos que combinan creación asistida por IA y modelado manual."
+        }
+      }
+    },
+    {
+      "type": "image",
+      "asset": "assets/originals/navarra/final-standing-figure.png",
+      "i18n": {
+        "en": {
+          "alt": "Closer view of a standing figure beside the fireplace, with a wooden chest and a chessboard in the room.",
+          "caption": "Detail of a standing figure in the team's environment."
+        },
+        "es": {
+          "alt": "Detalle de una figura de pie junto a la chimenea, con un arcón de madera y un tablero de ajedrez en la sala.",
+          "caption": "Detalle de una figura de pie en el entorno creado por el equipo."
+        }
+      }
+    },
+    {
+      "type": "image",
+      "asset": "assets/originals/navarra/zalatambor-castle-overview.png",
+      "i18n": {
+        "en": {
+          "alt": "Full view of the reconstructed Castillo de Zalatambor, with stone towers and walls above a rocky, tree-lined hillside.",
+          "caption": "Castillo de Zalatambor: reconstruction created by the team. My contribution to this scene was optimizing their assets for use on the web."
+        },
+        "es": {
+          "alt": "Vista completa de la reconstrucción del Castillo de Zalatambor, con torres y murallas de piedra sobre una ladera rocosa con árboles.",
+          "caption": "Castillo de Zalatambor: reconstrucción creada por el equipo. Mi contribución a esta escena fue optimizar sus recursos para su uso en la web."
+        }
+      }
+    }
+  ],
+  "content": {
+    "en": {
+      "title": "Virtual reconstruction of three historical sites in Navarra",
+      "description": "I wrote custom scripts to optimize the team's 3D scenes for the web and contributed static figures and props through a workflow combining historical references, AI generation, and manual modeling and retouching.",
+      "role": "Scene optimization scripts, 3D assets, and technical exploration",
+      "client": "",
+      "links": [
+        {
+          "label": "Explore the project",
+          "href": "https://navarra.arsoft-cloud.es/"
+        }
+      ]
+    },
+    "es": {
+      "title": "Reconstrucción virtual de tres enclaves históricos de Navarra",
+      "description": "Desarrollé scripts para optimizar las escenas 3D del equipo para la web y contribuí con figuras estáticas y objetos mediante un proceso que combina referencias históricas, generación con IA, modelado y retoque manual.",
+      "role": "Scripts de optimización de escenas, recursos 3D y exploración técnica",
+      "client": "",
+      "links": [
+        {
+          "label": "Explorar el proyecto",
+          "href": "https://navarra.arsoft-cloud.es/"
+        }
+      ]
+    }
+  }
+}

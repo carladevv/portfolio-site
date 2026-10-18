@@ -11,7 +11,7 @@
   ],
   "startDate": "2024-01-01",
   "priority": "high",
-  "visibility": "on",
+  "visibility": "off",
   "content": {
     "en": {
       "title": "BLENDER SCRIPTS & TOOLS",

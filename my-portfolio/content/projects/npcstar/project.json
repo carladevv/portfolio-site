@@ -9,7 +9,7 @@
   ],
   "startDate": "2025-10-01",
   "priority": "low",
-  "visibility": "on",
+  "visibility": "off",
   "content": {
     "en": {
       "title": "NPCstar",

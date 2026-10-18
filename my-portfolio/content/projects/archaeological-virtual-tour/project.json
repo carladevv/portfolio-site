@@ -13,18 +13,19 @@
   ],
   "startDate": "2025-02-01",
   "priority": "high",
+  "featured": true,
   "visibility": "on",
   "content": {
     "en": {
-      "title": "ARCHAEOLOGICAL VIRTUAL TOUR",
-      "description": "Gamified virtual tour prototype for an archaeological site in Barcelona, created in collaboration with the SERP/GRQ research group at the University of Barcelona.",
+      "title": "COVA BONICA VIRTUAL TOUR",
+      "description": "An interactive 3D visit to Cova Bonica, an Early Neolithic site in Vallirana, Barcelona. I developed the immersive web experience with the University of Barcelona's GRQ–SERP team, combining free exploration, archaeological points of interest, and optimized photogrammetric models. We shared the work through a short article and poster at CRAC's XVIII Technical Meeting on Conservation-Restoration.",
       "role": "Web Developer",
       "client": "for Quaternari Research Group",
       "links": []
     },
     "es": {
-      "title": "TOUR VIRTUAL DE ARQUEOLOGÍA",
-      "description": "Prototipo de tour virtual gamificado de un yacimiento arqueológico en Barcelona, creado en colaboración con el grupo de investigación SERP/GRQ de la Universidad de Barcelona.",
+      "title": "COVA BONICA VIRTUAL TOUR",
+      "description": "Una visita 3D interactiva a Cova Bonica, un yacimiento del Neolítico antiguo en Vallirana, Barcelona. Desarrollé la experiencia web inmersiva junto al equipo GRQ–SERP de la Universitat de Barcelona, combinando exploración libre, puntos de interés arqueológicos y modelos fotogramétricos optimizados. Compartimos el trabajo mediante un artículo breve y un póster en la XVIII Reunión Técnica de Conservación-Restauración de CRAC.",
       "role": "Desarrolladora web",
       "client": "para el Group de la Recerca del Quaternari",
       "links": []
